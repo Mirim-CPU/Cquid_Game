@@ -21,12 +21,18 @@
     <ClCompile Include="MarbleGame.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\source\repos\Rhythm_Game\Rhythm_Game\rhythm.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
     <ClInclude Include="MarbleGame.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\source\repos\Rhythm_Game\Rhythm_Game\rhythm.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
   </ItemGroup>

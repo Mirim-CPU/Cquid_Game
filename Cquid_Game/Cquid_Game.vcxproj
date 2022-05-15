@@ -139,10 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\source\repos\Rhythm_Game\Rhythm_Game\rhythm.cpp" />
     <ClCompile Include="main.c" />
     <ClCompile Include="MarbleGame.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\source\repos\Rhythm_Game\Rhythm_Game\rhythm.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="MarbleGame.h" />
   </ItemGroup>
