@@ -1,4 +1,7 @@
 #include "main.h"
+#include "MarbleGame.h"
+
+
 
 //타이틀 찍기
 void title() {
@@ -19,6 +22,10 @@ void title() {
 
 //게임 포커스
 void focus() {
+
+
+
+
 	gotoxy(11, 20);
 	printf("┌─────────────────┐\n");
 	gotoxy(11, 21);
@@ -29,29 +36,6 @@ void focus() {
 	printf("│                 │\n");
 	gotoxy(11, 24);
 	printf("└─────────────────┘\n");
-}
-
-//게임선택
-void select() {
-
-	int chk=0;
-	gotoxy(13, 18); printf("게임 선택 : \n");
-	gotoxy(20, 18); scanf_s("%d", & chk);
-
-	switch (chk)
-	{
-	case 1: main(); break;
-	case 2: break;
-	case 3: break;
-	case 4: break;
-	case 5: break;
-	case 6: break;
-
-	}
-}
-int main(void) {
-	title();
-	focus();
 
 	gotoxy(13, 22); printf("① 무궁화 꽃\n");
 	gotoxy(26, 22);  printf("② 달고나뽑기");
@@ -59,6 +43,36 @@ int main(void) {
 	gotoxy(13, 26);  printf("④ 구슬치기");
 	gotoxy(26, 26);  printf("⑤ 징검다리");
 	gotoxy(39, 26);  printf("⑥ 리듬게임");
+}
 
-	select();
+
+
+
+int main() {
+	title();
+	focus();
+
+	while (1) {
+
+
+		int chk = 0;
+		gotoxy(13, 18); printf("게임 선택 : \n");
+		gotoxy(20, 18); scanf_s("%d", &chk);
+
+		switch (chk)
+		{
+		case 1: break;
+		case 2: break;
+		case 3: break;
+		case 4: main_marble(); break;
+		case 5: break;
+		case 6: break;
+
+		}
+	}
+
+
+
+
+	return 0;
 }

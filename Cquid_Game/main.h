@@ -1,6 +1,8 @@
 #include<stdio.h>
 #include<windows.h>
 
+
+int main_marble(); //구슬치기
 //글자색 정의
 #define BLACK 0 
 #define BLUE 1 
@@ -28,9 +30,22 @@ void gotoxy(int x, int y)
 	Pos.Y = y;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);
 }
+
+
 //글자색 
-void textcolor(int foreground, int background)
+void setColor(int foreground, int background)
 {
-	int color = foreground + background * 16;
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
+	HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);	
+	int code = foreground + background * 16;
+	SetConsoleTextAttribute(consoleHandle, code);
+}
+
+
+//커서 숨기기
+void CursorView()
+{
+	CONSOLE_CURSOR_INFO cursorInfo = { 0, };
+	cursorInfo.dwSize = 1;
+	cursorInfo.bVisible = FALSE;
+	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);
 }
