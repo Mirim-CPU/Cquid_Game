@@ -139,14 +139,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\source\repos\Rhythm_Game\Rhythm_Game\rhythm.cpp" />
     <ClCompile Include="main.c" />
     <ClCompile Include="MarbleGame.c" />
+    <ClCompile Include="Rhythm.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\source\repos\Rhythm_Game\Rhythm_Game\rhythm.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="MarbleGame.h" />
+    <ClInclude Include="Rhythm.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
