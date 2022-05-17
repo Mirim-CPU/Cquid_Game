@@ -343,7 +343,10 @@ int menuDraw() {
 	while (1) {
 		input = _getch();
 		if (input == ENTER)	return 1;
-		else if (input == ESC) 	system("cls"); main();
+
+		else if (input == ESC) {
+			system("cls"); main();
+		}	
 	}
 }
 

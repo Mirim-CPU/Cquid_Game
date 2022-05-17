@@ -141,12 +141,10 @@
   <ItemGroup>
     <ClCompile Include="main.c" />
     <ClCompile Include="MarbleGame.c" />
-    <ClCompile Include="Rhythm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h" />
     <ClInclude Include="MarbleGame.h" />
-    <ClInclude Include="Rhythm.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

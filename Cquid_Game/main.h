@@ -26,7 +26,7 @@ int main_marble(); //구슬치기
 void gotoxy(int x, int y)
 {
 	COORD Pos;
-	Pos.X = 2 * x;
+	Pos.X =  x;
 	Pos.Y = y;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);
 }

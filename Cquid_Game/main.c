@@ -47,13 +47,12 @@ void focus() {
 
 
 
-
 int main() {
-	title();
-	focus();
+
 
 	while (1) {
-
+		title();
+		focus();
 
 		int chk = 0;
 		gotoxy(13, 18); printf("게임 선택 : \n");
@@ -71,8 +70,8 @@ int main() {
 		}
 	}
 
+	
 
-
-
+		system("cls");
 	return 0;
 }
