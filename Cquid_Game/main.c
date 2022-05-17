@@ -1,7 +1,6 @@
-#include "main.h"
+#include "modules.h"
 #include "MarbleGame.h"
-
-
+#include "Jingumdari.h"
 
 //타이틀 찍기
 void title() {
@@ -61,10 +60,10 @@ int main() {
 		switch (chk)
 		{
 		case 1: break;
-		case 2: break;
-		case 3: break;
+		case 2: main_dalgona();  break;
+		case 3: main_pushpull(); break;
 		case 4: main_marble(); break;
-		case 5: break;
+		case 5: main_jingumdari(); break;
 		case 6: break;
 
 		}
