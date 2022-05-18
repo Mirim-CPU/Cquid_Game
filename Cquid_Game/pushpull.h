@@ -3,3 +3,4 @@
 #include "modules.h"
 
 void main_pushpull(void);
+enum MENU game();

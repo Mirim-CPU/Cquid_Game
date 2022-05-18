@@ -56,7 +56,7 @@ void main_pushpull() {
 			break;
 		}
 	}
-	return 0;
+
 }
 
 // 게임 메인화면 함수

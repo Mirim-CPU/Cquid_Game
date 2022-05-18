@@ -4,19 +4,19 @@
 
 //顫檜ぎ 鎰晦
 void title() {
-	gotoxy(35, 4); printf(" _____ ____  __    __ _____ _____   ");
-	gotoxy(35, 5); printf("/ ____/ __ ′| |  | ||_   _|  __ ′ ");
-	gotoxy(35, 6); printf("| |   | |  | | |  | |  | | | |  | |");
-	gotoxy(35, 7); printf("| |   | |  | | |  | |  | | | |  | | ");
-	gotoxy(35, 8); printf("| |___| |__| | |__| | _| |_| |__| | ");
-	gotoxy(35, 9); printf("′____′___′′____/ |_____|_____/  ");
+	gotoxy(60, 4); printf(" _____ ____  __    __ _____ _____   ");
+	gotoxy(60, 5); printf("/ ____/ __ ′| |  | ||_   _|  __ ′ ");
+	gotoxy(60, 6); printf("| |   | |  | | |  | |  | | | |  | |");
+	gotoxy(60, 7); printf("| |   | |  | | |  | |  | | | |  | | ");
+	gotoxy(60, 8); printf("| |___| |__| | |__| | _| |_| |__| | ");
+	gotoxy(60, 9); printf("′____′___′′____/ |_____|_____/  ");
 
-	gotoxy(35, 10); printf("   _____          __    __ ______ ");
-	gotoxy(35, 11); printf("  / ____|   /′   |  ′/  |  ____|");
-	gotoxy(35, 12); printf(" | |  __   /  ′  | ′  / | |__ ");
-	gotoxy(35, 13); printf(" | | |_ | / /′′ | |′/| |  __|");
-	gotoxy(35, 14); printf(" | |__| |/ ____ ′| |   | | |____ ");
-	gotoxy(35, 15); printf("  ′____/_/   ′_′_|   |_|______|");
+	gotoxy(60, 10); printf("   _____          __    __ ______ ");
+	gotoxy(60, 11); printf("  / ____|   /′   |  ′/  |  ____|");
+	gotoxy(60, 12); printf(" | |  __   /  ′  | ′  / | |__ ");
+	gotoxy(60, 13); printf(" | | |_ | / /′′ | |′/| |  __|");
+	gotoxy(60, 14); printf(" | |__| |/ ____ ′| |   | | |____ ");
+	gotoxy(60, 15); printf("  ′____/_/   ′_′_|   |_|______|");
 }
 
 //啪歜 ん醴蝶
@@ -25,7 +25,7 @@ void focus() {
 
 
 
-	gotoxy(11, 20);
+	/*gotoxy(11, 20);
 	printf("忙式式式式式式式式式式式式式式式式式忖\n");
 	gotoxy(11, 21);
 	printf("弛                 弛\n");
@@ -34,7 +34,7 @@ void focus() {
 	gotoxy(11, 23);
 	printf("弛                 弛\n");
 	gotoxy(11, 24);
-	printf("戌式式式式式式式式式式式式式式式式式戎\n");
+	printf("戌式式式式式式式式式式式式式式式式式戎\n");*/
 
 	gotoxy(13, 22); printf("函 鼠掙�� 粒\n");
 	gotoxy(26, 22);  printf("刻 殖堅釭鉻晦");
@@ -59,7 +59,7 @@ int main() {
 
 		switch (chk)
 		{
-		case 1: break;
+		case 1: main_mugunghwa(); break;
 		case 2: main_dalgona();  break;
 		case 3: main_pushpull(); break;
 		case 4: main_marble(); break;

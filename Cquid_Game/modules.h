@@ -1,9 +1,20 @@
 #pragma once
 #include <Windows.h>
 #include <conio.h>
-#include <mmsystem.h>;
+#include <mmsystem.h>
 #include <string.h>
 #pragma comment(lib, "winmm.lib")
+
+
+
+
+void main_pushpull();
+void main_marble();
+void main_mugunghwa();
+void main_dalgona();
+void main_jingumdari();
+
+
 
 // color
 enum {

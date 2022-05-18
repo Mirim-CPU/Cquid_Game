@@ -144,6 +144,7 @@
     <ClCompile Include="main.c" />
     <ClCompile Include="MarbleGame.c" />
     <ClCompile Include="modules.c" />
+    <ClCompile Include="Mugunghwa.c" />
     <ClCompile Include="pushpull.c" />
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +152,7 @@
     <ClInclude Include="jingumdari.h" />
     <ClInclude Include="MarbleGame.h" />
     <ClInclude Include="modules.h" />
+    <ClInclude Include="Mugunghwa.h" />
     <ClInclude Include="pushpull.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
