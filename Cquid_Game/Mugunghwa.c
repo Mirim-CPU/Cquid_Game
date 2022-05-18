@@ -20,6 +20,14 @@ int inputChk = 1;
 
 
 
+//좌표
+void gotoxy_2x(int x, int y)
+{
+	COORD Pos;
+	Pos.X = x * 2;
+	Pos.Y = y;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);
+}
 
 
 
@@ -55,31 +63,31 @@ void Mugunghwa_title() {
 
 	int x = 1;
 	int y = 6;
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), LIGHTRED);
-	gotoxy(x, y++);  printf(" __   __ __   __ _______ __   __ __    _ _______ __   __ _     _ _______ ");
-	gotoxy(x, y++);  printf("|  |_|  |  | |  |       |  | |  |  |  | |       |  | |  | | _ | |   _   |");
-	gotoxy(x, y++);  printf("|       |  | |  |    ___|  | |  |   |_| |    ___|  |_|  | || || |  |_|  |");
-	gotoxy(x, y++);  printf("|       |  |_|  |   | __|  |_|  |       |   | __|       |       |       |");
-	gotoxy(x, y++);  printf("|       |       |   ||  |       |  _    |   ||  |       |       |       |");
-	gotoxy(x, y++);  printf("| ||_|| |       |   |_| |       | | |   |   |_| |   _   |   _   |   _   |");
-	gotoxy(x, y++);  printf("|_|   |_|_______|_______|_______|_|  |__|_______|__| |__|__| |__|__| |__|");
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), RED);
+	gotoxy_2x(x, y++);  printf(" __   __ __   __ _______ __   __ __    _ _______ __   __ _     _ _______ ");
+	gotoxy_2x(x, y++);  printf("|  |_|  |  | |  |       |  | |  |  |  | |       |  | |  | | _ | |   _   |");
+	gotoxy_2x(x, y++);  printf("|       |  | |  |    ___|  | |  |   |_| |    ___|  |_|  | || || |  |_|  |");
+	gotoxy_2x(x, y++);  printf("|       |  |_|  |   | __|  |_|  |       |   | __|       |       |       |");
+	gotoxy_2x(x, y++);  printf("|       |       |   ||  |       |  _    |   ||  |       |       |       |");
+	gotoxy_2x(x, y++);  printf("| ||_|| |       |   |_| |       | | |   |   |_| |   _   |   _   |   _   |");
+	gotoxy_2x(x, y++);  printf("|_|   |_|_______|_______|_______|_|  |__|_______|__| |__|__| |__|__| |__|");
 
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), LIGHTBLUE);
-	gotoxy(x, y++);  printf("|  | |  |   _   |       |     ");
-	gotoxy(x, y++);  printf("|  |_|  |  |_|  |  _____|   ");
-	gotoxy(x, y++);  printf("|       |       | |_____  ");
-	gotoxy(x, y++);  printf("|       |       |_____  |    ");
-	gotoxy(x, y++);  printf("|   _   |   _   |_____| |   ");
-	gotoxy(x, y++);  printf("|__|_|__|__| |__|_______|");
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BLUE);
+	gotoxy_2x(x, y++);  printf("|  | |  |   _   |       |     ");
+	gotoxy_2x(x, y++);  printf("|  |_|  |  |_|  |  _____|   ");
+	gotoxy_2x(x, y++);  printf("|       |       | |_____  ");
+	gotoxy_2x(x, y++);  printf("|       |       |_____  |    ");
+	gotoxy_2x(x, y++);  printf("|   _   |   _   |_____| |   ");
+	gotoxy_2x(x, y++);  printf("|__|_|__|__| |__|_______|");
 
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), LIGHTGREEN);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), GREEN);
 	printf("_______ __   __ _______ ______          ");
-	gotoxy(x, y++);  printf("|  _    |   |   |       |       |  |_|  |       |      |         ");
-	gotoxy(x, y++);  printf("| |_|   |   |   |   _   |   _   |       |    ___|  _    |   ");
-	gotoxy(x, y++);  printf("|       |   |   |  | |  |  | |  |       |   |___| | |   |   ");
-	gotoxy(x, y++);  printf("|  _   ||   |___|  |_|  |  |_|  |       |    ___| |_|   |    ");
-	gotoxy(x, y++);  printf("| |_|   |       |       |       | ||_|| |   |___|       |     ");
-	gotoxy(x, y++);  printf("|_______|_______|_______|_______|_|   |_|_______|______|    ");
+	gotoxy_2x(x, y++);  printf("|  _    |   |   |       |       |  |_|  |       |      |         ");
+	gotoxy_2x(x, y++);  printf("| |_|   |   |   |   _   |   _   |       |    ___|  _    |   ");
+	gotoxy_2x(x, y++);  printf("|       |   |   |  | |  |  | |  |       |   |___| | |   |   ");
+	gotoxy_2x(x, y++);  printf("|  _   ||   |___|  |_|  |  |_|  |       |    ___| |_|   |    ");
+	gotoxy_2x(x, y++);  printf("| |_|   |       |       |       | ||_|| |   |___|       |     ");
+	gotoxy_2x(x, y++);  printf("|_______|_______|_______|_______|_|   |_|_______|______|    ");
 
 
 }
@@ -99,10 +107,10 @@ void showMenu() {
 	int y = 22;
 
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
-	gotoxy(x - 1, y);  printf("▶ 게 임 시 작");
-	gotoxy(x, y += 2);  printf(" 게 임 종 료");
+	gotoxy_2x(x - 1, y);  printf("▶ 게 임 시 작");
+	gotoxy_2x(x, y += 2);  printf(" 게 임 종 료");
 
-	gotoxy(30, y -= 2);
+	gotoxy_2x(30, y -= 2);
 }
 //메뉴선택
 int  menu() {
@@ -121,15 +129,15 @@ int  menu() {
 		case UP: {
 			if (y > 22) {
 
-				gotoxy(x - 1, y); printf("  ");
-				gotoxy(x - 1, y -= 2); printf("▶");
+				gotoxy_2x(x - 1, y); printf("  ");
+				gotoxy_2x(x - 1, y -= 2); printf("▶");
 			}
 			break;
 		}
 		case DOWN: {
 			if (y < 24) {
-				gotoxy(x - 1, y); printf("  ");
-				gotoxy(x - 1, y += 2); printf("▶");
+				gotoxy_2x(x - 1, y); printf("  ");
+				gotoxy_2x(x - 1, y += 2); printf("▶");
 			}
 
 			break;
@@ -146,7 +154,7 @@ int  menu() {
 void checkFinish(int x, int y) {
 	if (x >= 50 && y >= 1 && y <= 23) {
 		system("cls");
-		gotoxy(30, 13); printf("완주");
+		gotoxy_2x(30, 13); printf("완주");
 	}
 }
 
@@ -160,7 +168,7 @@ unsigned _stdcall character_control() {
 
 	int i = 0;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), GREEN);
-	gotoxy(x, y); printf("■");
+	gotoxy_2x(x, y); printf("■");
 	while (inputChk) {
 
 		int n = _getch();
@@ -214,41 +222,41 @@ unsigned _stdcall character_control() {
 		}
 		switch (i / 5)
 		{
-		case 0: gotoxy(x, y++); printf("  "); break;
-		case 1:  gotoxy(x++, y); printf("  "); break;
-		case 2:  gotoxy(x, y++); printf("  "); break;
-		case 3: gotoxy(x++, y); printf("  "); break;
-		case 4: gotoxy(x, y--);  printf("  "); break;
-		case 5: gotoxy(x++, y); printf("  "); break;
-		case 6:  gotoxy(x, y++); printf("  "); break;
-		case 7:  gotoxy(x++, y); printf("  "); break;
-		case 8:  gotoxy(x, y++); printf("  "); break;
-		case 9:  gotoxy(x++, y);  printf("  "); break;
-		case 10:  gotoxy(x, y--); printf("  "); break;
-		case 11:  gotoxy(x, y--); printf("  "); break;
-		case 12:  gotoxy(x, y--); printf("  "); break;
-		case 13:  gotoxy(x--, y); printf("  "); break;
-		case 14:  gotoxy(x--, y); printf("  "); break;
-		case 15:  gotoxy(x, y--); printf("  "); break;
-		case 16:  gotoxy(x++, y); printf("  "); break;
-		case 17:  gotoxy(x++, y); printf("  "); break;
-		case 18:  gotoxy(x++, y); printf("  "); break;
-		case 19:  gotoxy(x, y++); printf("  "); break;
-		case 20:  gotoxy(x, y++); printf("  "); break;
-		case 21:  gotoxy(x, y++); printf("  "); break;
-		case 22:  gotoxy(x++, y); printf("  "); break;
-		case 23:  gotoxy(x, y++); printf("  "); break;
-		case 24:  gotoxy(x++, y); printf("  "); break;
-		case 25:  gotoxy(x, y--); printf("  "); break;
-		case 26:  gotoxy(x, y--); printf("  "); break;
-		case 27:  gotoxy(x++, y); printf("  "); break;
+		case 0: gotoxy_2x(x, y++); printf("  "); break;
+		case 1:  gotoxy_2x(x++, y); printf("  "); break;
+		case 2:  gotoxy_2x(x, y++); printf("  "); break;
+		case 3: gotoxy_2x(x++, y); printf("  "); break;
+		case 4: gotoxy_2x(x, y--);  printf("  "); break;
+		case 5: gotoxy_2x(x++, y); printf("  "); break;
+		case 6:  gotoxy_2x(x, y++); printf("  "); break;
+		case 7:  gotoxy_2x(x++, y); printf("  "); break;
+		case 8:  gotoxy_2x(x, y++); printf("  "); break;
+		case 9:  gotoxy_2x(x++, y);  printf("  "); break;
+		case 10:  gotoxy_2x(x, y--); printf("  "); break;
+		case 11:  gotoxy_2x(x, y--); printf("  "); break;
+		case 12:  gotoxy_2x(x, y--); printf("  "); break;
+		case 13:  gotoxy_2x(x--, y); printf("  "); break;
+		case 14:  gotoxy_2x(x--, y); printf("  "); break;
+		case 15:  gotoxy_2x(x, y--); printf("  "); break;
+		case 16:  gotoxy_2x(x++, y); printf("  "); break;
+		case 17:  gotoxy_2x(x++, y); printf("  "); break;
+		case 18:  gotoxy_2x(x++, y); printf("  "); break;
+		case 19:  gotoxy_2x(x, y++); printf("  "); break;
+		case 20:  gotoxy_2x(x, y++); printf("  "); break;
+		case 21:  gotoxy_2x(x, y++); printf("  "); break;
+		case 22:  gotoxy_2x(x++, y); printf("  "); break;
+		case 23:  gotoxy_2x(x, y++); printf("  "); break;
+		case 24:  gotoxy_2x(x++, y); printf("  "); break;
+		case 25:  gotoxy_2x(x, y--); printf("  "); break;
+		case 26:  gotoxy_2x(x, y--); printf("  "); break;
+		case 27:  gotoxy_2x(x++, y); printf("  "); break;
 		}
 
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), GREEN);
 		i++;
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
-		gotoxy(20, 29); printf(" % d", score);
-		gotoxy(46, 29); printf(" %d", heart);
+		gotoxy_2x(20, 27); printf(" % d", score);
+		gotoxy_2x(46, 27); printf(" %d", heart);
 
 
 	}
@@ -262,36 +270,36 @@ void showYoungHee(int show) {
 
 	if (show == 1) {
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
-		gotoxy(x, y++);  printf("／￣￣￣￣＼");
-		gotoxy(x, y++);  printf("/ㅡ　 　ㅡ ＼ ");
-		gotoxy(x, y++);  printf("/(★) (★)     ");
-		gotoxy(x, y++);  printf("｜⌒ 人⌒   | ");
-		gotoxy(x, y++);  printf("＼　　     ノ ");
+		gotoxy_2x(x, y++);  printf("／￣￣￣￣＼");
+		gotoxy_2x(x, y++);  printf("/ㅡ　 　ㅡ ＼ ");
+		gotoxy_2x(x, y++);  printf("/(★) (★)     ");
+		gotoxy_2x(x, y++);  printf("｜⌒ 人⌒   | ");
+		gotoxy_2x(x, y++);  printf("＼　　     ノ ");
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
-		gotoxy(x, y++);  printf("  /⌒＼-イ ");
+		gotoxy_2x(x, y++);  printf("  /⌒＼-イ ");
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), LIGHTRED);
-		gotoxy(x, y++);  printf(" (　r 　 ｜ ");
-		gotoxy(x, y++);  printf(" ＼ノノ--｜ ");
+		gotoxy_2x(x, y++);  printf(" (　r 　 ｜ ");
+		gotoxy_2x(x, y++);  printf(" ＼ノノ--｜ ");
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
-		gotoxy(x, y++);  printf("  |＿_/_/ ");
-		gotoxy(x, y++);  printf("  `ㅡ^ㅡ`");
+		gotoxy_2x(x, y++);  printf("  |＿_/_/ ");
+		gotoxy_2x(x, y++);  printf("  `ㅡ^ㅡ`");
 	}
 	//영희 뒤돌기전
 	else {
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
-		gotoxy(x, y++);  printf("／￣￣￣￣＼");
-		gotoxy(x, y++);  printf("/　 ㅡ　 ㅡ＼ ");
-		gotoxy(x, y++);  printf("/ (●) 　(●) ");
-		gotoxy(x, y++);  printf("｜ ⌒  人⌒ | ");
-		gotoxy(x, y++);  printf("＼　　     ノ ");
+		gotoxy_2x(x, y++);  printf("／￣￣￣￣＼");
+		gotoxy_2x(x, y++);  printf("/　 ㅡ　 ㅡ＼ ");
+		gotoxy_2x(x, y++);  printf("/ (●) 　(●) ");
+		gotoxy_2x(x, y++);  printf("｜ ⌒  人⌒ | ");
+		gotoxy_2x(x, y++);  printf("＼　　     ノ ");
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
-		gotoxy(x, y++);  printf("  /⌒＼-イ ");
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), LIGHTRED);
-		gotoxy(x, y++);  printf(" (　r 　 ｜ ");
-		gotoxy(x, y++);  printf(" ＼ノノ--｜ ");
+		gotoxy_2x(x, y++);  printf("  /⌒＼-イ ");
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), RED);
+		gotoxy_2x(x, y++);  printf(" (　r 　 ｜ ");
+		gotoxy_2x(x, y++);  printf(" ＼ノノ--｜ ");
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
-		gotoxy(x, y++);  printf("  |＿_/_/ ");
-		gotoxy(x, y++);  printf("  `ㅡ^ㅡ`");
+		gotoxy_2x(x, y++);  printf("  |＿_/_/ ");
+		gotoxy_2x(x, y++);  printf("  `ㅡ^ㅡ`");
 	}
 
 }
@@ -303,7 +311,7 @@ void showGameOver() {
 	score = 0;
 	heart = 5;
 
-	gotoxy(30, 13); printf("GAME OVER");
+	gotoxy_2x(30, 13); printf("GAME OVER");
 
 	Sleep(2000);
 	system("cls");
@@ -347,11 +355,11 @@ unsigned _stdcall  MusicTimer() {
 
 		switch (rn)
 		{
-		case 0:	PlaySound(TEXT("./music/sound1.wav"), NULL, SND_FILENAME | SND_ASYNC); soundtime = 4.5; break;
-		case 1:	PlaySound(TEXT("./music/sound2.wav"), NULL, SND_FILENAME | SND_ASYNC); soundtime = 3.2; break;
-		case 2:	PlaySound(TEXT("./music/sound3.wav"), NULL, SND_FILENAME | SND_ASYNC); soundtime = 2.3; break;
-		case 3:	PlaySound(TEXT("./music/sound4.wav"), NULL, SND_FILENAME | SND_ASYNC); soundtime = 1.9; break;
-		case 4:	PlaySound(TEXT("./music/sound5.wav"), NULL, SND_FILENAME | SND_ASYNC); soundtime = 1.5;   break;
+		case 0:	PlaySound(TEXT("./sound/mugunghwa/sound1.wav"), NULL, SND_FILENAME | SND_ASYNC); soundtime = 4.5; break;
+		case 1:	PlaySound(TEXT("./sound/mugunghwa/sound2.wav"), NULL, SND_FILENAME | SND_ASYNC); soundtime = 3.2; break;
+		case 2:	PlaySound(TEXT("./sound/mugunghwa/sound3.wav"), NULL, SND_FILENAME | SND_ASYNC); soundtime = 2.3; break;
+		case 3:	PlaySound(TEXT("./sound/mugunghwa/sound4.wav"), NULL, SND_FILENAME | SND_ASYNC); soundtime = 1.9; break;
+		case 4:	PlaySound(TEXT("./sound/mugunghwa/sound5.wav"), NULL, SND_FILENAME | SND_ASYNC); soundtime = 1.5;   break;
 
 		}
 
@@ -401,32 +409,32 @@ void tagger() {
 
 
 void showHeart() {
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), LIGHTRED);
-	gotoxy(32, 27);  printf("  ,d88b.d88b,");
-	gotoxy(32, 28);  printf("  88888888888");
-	gotoxy(32, 29);  printf("  `Y8888888Y'");
-	gotoxy(32, 30);  printf("    `Y888Y'    ");
-	gotoxy(32, 31);  printf("      `Y' ");
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), RED);
+	gotoxy_2x(32, 25);  printf("  ,d88b.d88b,");
+	gotoxy_2x(32, 26);  printf("  88888888888");
+	gotoxy_2x(32, 27);  printf("  `Y8888888Y'");
+	gotoxy_2x(32, 28);  printf("    `Y888Y'    ");
+	gotoxy_2x(32, 29);  printf("      `Y' ");
 
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
-	gotoxy(40, 28);  printf("( ＼/ )");
-	gotoxy(40, 29);  printf("  ) ( ");
-	gotoxy(40, 30);  printf("(_/＼_)");
-	gotoxy(46, 29); printf(" %d", 5);
+	gotoxy_2x(40, 26);  printf("( ＼/ )");
+	gotoxy_2x(40, 27);  printf("  ) ( ");
+	gotoxy_2x(40, 28);  printf("(_/＼_)");
+	gotoxy_2x(46, 27); printf(" %d", 5);
 
 }
 
 
-//점수 나타내기
+//점수 나타내기6
 void showScore() {
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), LIGHTBLUE);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BLUE);
 
-	gotoxy(5, 27);  printf(" ___  ___ ___   _  __ ___   ");
-	gotoxy(5, 28);  printf("/ __|/ __/ _ ＼ | '__/ _ ＼  0");
-	gotoxy(5, 29);  printf("＼__＼ (_| (_)  | |  | __/");
-	gotoxy(5, 30);  printf("|___/＼___＼___/|_|  ＼___|  0 ");
+	gotoxy_2x(5, 25);  printf(" ___  ___ ___   _  __ ___   ");
+	gotoxy_2x(5, 26);  printf("/ __|/ __/ _ ＼ | '__/ _ ＼  0");
+	gotoxy_2x(5, 27);  printf("＼__＼ (_| (_)  | |  | __/");
+	gotoxy_2x(5, 28);  printf("|___/＼___＼___/|_|  ＼___|  0 ");
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
-	gotoxy(20, 29); printf(" % d", 0);
+	gotoxy_2x(20, 27); printf(" % d", 0);
 
 }
 
@@ -438,21 +446,21 @@ void map() {
 	int show = 0; // 1 = show, 0 - hide
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
 	for (int i = 0; i < 60; i++) {
-		gotoxy(i, 0); printf("■");
+		gotoxy_2x(i, 0); printf("■");
 	}
 
 	for (int i = 0; i < 60; i++) {
-		gotoxy(i, 24); printf("■");
+		gotoxy_2x(i, 24); printf("■");
 	}
 	//start 라인
 	for (int i = 0; i < 25; i++) {
-		gotoxy(3, i); printf("|");
+		gotoxy_2x(3, i); printf("|");
 	}
 
 	//finish 라인
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), RED);
 	for (int i = 1; i < 24; i++) {
-		gotoxy(50, i); printf("|");
+		gotoxy_2x(50, i); printf("|");
 	}
 	tagger();
 
@@ -476,34 +484,34 @@ void mission() {
 
 		switch (i / 5)
 		{
-		case 0: gotoxy(x, y++); printf("%s", m[rn]); break;
-		case 1:  gotoxy(x++, y); printf("%s", m[rn]);   break;
-		case 2:  gotoxy(x, y++); printf("%s", m[rn]);   break;
-		case 3: gotoxy(x++, y); printf("%s", m[rn]);  break;
-		case 4: gotoxy(x, y--);  printf("%s", m[rn]);  break;
-		case 5: gotoxy(x++, y); printf("%s", m[rn]); break;
-		case 6:  gotoxy(x, y++); printf("%s", m[rn]);  break;
-		case 7:  gotoxy(x++, y);  printf("%s", m[rn]);  break;
-		case 8:  gotoxy(x, y++); printf("%s", m[rn]);  break;
-		case 9:  gotoxy(x++, y);  printf("%s", m[rn]);  break;
-		case 10:  gotoxy(x, y--); printf("%s", m[rn]);  break;
-		case 11:  gotoxy(x, y--); printf("%s", m[rn]);  break;
-		case 12:  gotoxy(x, y--); printf("%s", m[rn]);  break;
-		case 13:  gotoxy(x--, y); printf("%s", m[rn]);  break;
-		case 14:  gotoxy(x--, y); printf("%s", m[rn]);  break;
-		case 15:  gotoxy(x, y--); printf("%s", m[rn]);  break;
-		case 16:  gotoxy(x++, y); printf("%s", m[rn]);  break;
-		case 17:  gotoxy(x++, y); printf("%s", m[rn]);  break;
-		case 18:  gotoxy(x++, y); printf("%s", m[rn]);  break;
-		case 19:  gotoxy(x, y++); printf("%s", m[rn]);  break;
-		case 20:  gotoxy(x, y++); printf("%s", m[rn]);  break;
-		case 21:  gotoxy(x, y++); printf("%s", m[rn]);  break;
-		case 22:  gotoxy(x++, y); printf("%s", m[rn]);  break;
-		case 23:  gotoxy(x, y++); printf("%s", m[rn]);  break;
-		case 24:  gotoxy(x++, y); printf("%s", m[rn]);  break;
-		case 25:  gotoxy(x, y--); printf("%s", m[rn]);  break;
-		case 26:  gotoxy(x, y--); printf("%s", m[rn]);  break;
-		case 27:  gotoxy(x++, y); printf("%s", m[rn]);  break;
+		case 0: gotoxy_2x(x, y++); printf("%s", m[rn]); break;
+		case 1:  gotoxy_2x(x++, y); printf("%s", m[rn]);   break;
+		case 2:  gotoxy_2x(x, y++); printf("%s", m[rn]);   break;
+		case 3: gotoxy_2x(x++, y); printf("%s", m[rn]);  break;
+		case 4: gotoxy_2x(x, y--);  printf("%s", m[rn]);  break;
+		case 5: gotoxy_2x(x++, y); printf("%s", m[rn]); break;
+		case 6:  gotoxy_2x(x, y++); printf("%s", m[rn]);  break;
+		case 7:  gotoxy_2x(x++, y);  printf("%s", m[rn]);  break;
+		case 8:  gotoxy_2x(x, y++); printf("%s", m[rn]);  break;
+		case 9:  gotoxy_2x(x++, y);  printf("%s", m[rn]);  break;
+		case 10:  gotoxy_2x(x, y--); printf("%s", m[rn]);  break;
+		case 11:  gotoxy_2x(x, y--); printf("%s", m[rn]);  break;
+		case 12:  gotoxy_2x(x, y--); printf("%s", m[rn]);  break;
+		case 13:  gotoxy_2x(x--, y); printf("%s", m[rn]);  break;
+		case 14:  gotoxy_2x(x--, y); printf("%s", m[rn]);  break;
+		case 15:  gotoxy_2x(x, y--); printf("%s", m[rn]);  break;
+		case 16:  gotoxy_2x(x++, y); printf("%s", m[rn]);  break;
+		case 17:  gotoxy_2x(x++, y); printf("%s", m[rn]);  break;
+		case 18:  gotoxy_2x(x++, y); printf("%s", m[rn]);  break;
+		case 19:  gotoxy_2x(x, y++); printf("%s", m[rn]);  break;
+		case 20:  gotoxy_2x(x, y++); printf("%s", m[rn]);  break;
+		case 21:  gotoxy_2x(x, y++); printf("%s", m[rn]);  break;
+		case 22:  gotoxy_2x(x++, y); printf("%s", m[rn]);  break;
+		case 23:  gotoxy_2x(x, y++); printf("%s", m[rn]);  break;
+		case 24:  gotoxy_2x(x++, y); printf("%s", m[rn]);  break;
+		case 25:  gotoxy_2x(x, y--); printf("%s", m[rn]);  break;
+		case 26:  gotoxy_2x(x, y--); printf("%s", m[rn]);  break;
+		case 27:  gotoxy_2x(x++, y); printf("%s", m[rn]);  break;
 		}
 
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color[rn]);
@@ -545,7 +553,7 @@ void  main_mugunghwa() {
 	while (1) {
 		switch (menu()) {
 		case 0: 	inputChk = 1;  StartGame(); break; //게임시작
-		case 2: exit(0);  break; // 게임종료
+		case 2: 	system("cls"); main();  break; // 게임종료
 
 		}
 

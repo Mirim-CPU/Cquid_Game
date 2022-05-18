@@ -1,6 +1,9 @@
 #include "modules.h"
 #include "MarbleGame.h"
 #include "Jingumdari.h"
+#include "pushpull.h"
+#include"dalgona.h"
+#include "Mugunghwa.h"
 
 //타이틀 찍기
 void title() {
@@ -52,7 +55,7 @@ int main() {
 	while (1) {
 		title();
 		focus();
-
+		PlaySound(NULL, 0, 0);
 		int chk = 0;
 		gotoxy(13, 18); printf("게임 선택 : \n");
 		gotoxy(20, 18); scanf_s("%d", &chk);

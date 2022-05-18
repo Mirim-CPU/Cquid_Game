@@ -8,7 +8,6 @@ void Mugunghwa_main();
 
 enum Color
 {
-
     CYAN,
     MAGENTA,
     BROWN,
@@ -19,7 +18,6 @@ enum Color
     LIGHTCYAN,
     LIGHTRED,
     LIGHTMAGENTA,
-
 };
 
 
