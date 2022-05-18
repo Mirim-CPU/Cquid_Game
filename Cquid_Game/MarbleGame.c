@@ -89,35 +89,35 @@ void drawMap(int* x, int* y) {
 		for (w = 0; w < 100; w++) {
 			char temp = tempMap[h][w];	//현재의 맴 데이터
 			if (temp == '0') {	//빈 공간(공백)
-				setColor(black, black);
+				setBackColor(black, black);
 				printf(" ");
 			}
 			else if (temp == '1') {	//벽(#)
-				setColor(white, white);
+				setBackColor(white, white);
 				printf("#");
 			}
 			else if (temp == 's') {	//플레이어(@)
 				*x = w;	//플레이어 좌표값 저장
 				*y = h;
-				setColor(cyan, black);
+				setBackColor(cyan, black);
 				printf("@");
 			}
 			else if (temp == 'q') {	//목적지(O)
-				setColor(lightgreen, black);
+				setBackColor(lightgreen, black);
 				printf("O");
 			}
 			else if (temp == 'k') {	//열쇠(*)
-				setColor(yellow, black);
+				setBackColor(yellow, black);
 				printf("*");
 			}
 			else if (temp == 'l') {	//잠긴 문 
-				setColor(brown, black);
+				setBackColor(brown, black);
 				printf("+");
 			}
 		}
 		printf("\n");
 	}
-	setColor(white, black);
+	setBackColor(white, black);
 }
 
 //게임 루프
@@ -186,7 +186,7 @@ void gLoop(int mapCode) {
 			//y : 1이 증가하면 아래로 이동
 
 		case ESC:
-			setColor(white, black);
+			setBackColor(white, black);
 			playing = 0;	//0이 되면 반복 종료
 		}
 	}
@@ -199,12 +199,12 @@ void gLoop(int mapCode) {
 void move(int* x, int* y, int _x, int _y, int* key, int* playing) {
 	//이동할 위치에 있는 맵 배열의 문자 임시저장
 	char mapObject = tempMap[*y + _y][*x + _x];
-	setColor(white, black);
+	setBackColor(white, black);
 
 	if (mapObject == '0') {
 		gotoxy(*x, *y);
 		printf(" ");	//지우기
-		setColor(cyan, black); //색 설정
+		setBackColor(cyan, black); //색 설정
 		gotoxy(*x + _x, *y + _y);	//증감한 위치로 이동 후 플레이어 출력
 		printf("@");
 		*x += _x;	//실제 좌표값 반영--
@@ -220,7 +220,7 @@ void move(int* x, int* y, int _x, int _y, int* key, int* playing) {
 		if (*key > 0) {
 			*key -= 1;	//열쇠가 1개 이상있으면 1개 소모
 			tempMap[*y + _y][*x + _x] = '0';	//뮨이 열렸으니 l데이터 0으로 설정
-			setColor(white, black);	//색 기본 값
+			setBackColor(white, black);	//색 기본 값
 			gotoxy(*x + _x, *y + _y);
 			printf(" ");
 		}
@@ -266,14 +266,14 @@ int keyControl(int x, int y, int num)
 
 //게임 하단에 좌표 및 아이템 정보 출력
 void drawUI(int* x, int* y, int* key) {
-	setColor(white, black);
+	setBackColor(white, black);
 	gotoxy(79, 24);
 	printf("--------------------");
 	gotoxy(80, 25);
 	printf("위치 : %02d, %02d", *y, *x);
 	gotoxy(79, 26);
 	printf("--------------------");
-	setColor(yellow, black);
+	setBackColor(yellow, black);
 	gotoxy(49, 24);
 	printf("---------------");
 	gotoxy(50, 25);
@@ -284,7 +284,7 @@ void drawUI(int* x, int* y, int* key) {
 
 void drawTime(double time, double stime)
 {
-	setColor(lightcyan, black);
+	setBackColor(lightcyan, black);
 	gotoxy(19, 24);
 	printf("--------------------");
 	gotoxy(20, 25);
@@ -298,7 +298,7 @@ int drawlevel()
 	system("cls");
 	int x = 58, y = 6;
 	int level_n;
-	setColor(white, black);
+	setBackColor(white, black);
 	printf("\n\n");
 	printf("\t\t\t\t\t\t\t[레벨 선택]\n\n");
 	gotoxy(x - 2, y);
@@ -312,14 +312,14 @@ int drawlevel()
 }
 
 void titleDraw() {
-	setColor(lightgreen, black);
+	setBackColor(lightgreen, black);
 	printf("\n\n\t\t\t  __  __            _     _        _____ \n");
 	printf("\t\t\t |  \\/  |          | |   | |      / ____| \n");
 	printf("\t\t\t | \\  / | __ _ _ __| |__ | | ___  | |  __  __ _ _ __ ___   ___ \n");
 	printf("\t\t\t | |\\/| |/ _` | '__| '_ \\| |/ _ \\ | | |_ |/ _` | '_ ` _ \\ / _ \\ \n");
 	printf("\t\t\t | |  | | (_| | |  | |_) | |  __/ | |__| | (_| | | | | | |  __/ \n");
 	printf("\t\t\t |_|  |_|\\__,_|_|  |_.__/|_|\\___|  \\_____|\\__,_|_| |_| |_|\\___| \n");
-	setColor(white, black);
+	setBackColor(white, black);
 	printf("\n\n");
 	printf("          ○                        - - - - - ○ △ □ 구슬 치기 ○ △ □ - - - - -                      △ \n\n");
 	printf("                 △                |      구슬을 쳐서 미로를 탈출하십시오      |        ○\n\n");
@@ -335,10 +335,10 @@ int menuDraw() {
 	int input;
 	gotoxy(x - 2, y);
 	printf("> 게임시작");
-	setColor(darkgray, black);
+	setBackColor(darkgray, black);
 	gotoxy(x - 15, y + 3);
 	printf("developed by 배서연, 하진, 이혜령");
-	setColor(white, black);
+	setBackColor(white, black);
 
 	while (1) {
 		input = _getch();
@@ -346,7 +346,7 @@ int menuDraw() {
 
 		else if (input == ESC) {
 			system("cls"); main();
-		}	
+		}
 	}
 }
 
@@ -405,7 +405,7 @@ void endDraw() {
 	gotoxy(60, 23);
 	printf(">돌아가기<");
 	gotoxy(50, 25);
-	setColor(yellow, black);
+	setBackColor(yellow, black);
 	printf("개발자 : 배서연, 이혜령, 하진");
 
 	while (1) {
@@ -418,7 +418,7 @@ void failDraw()
 {
 	int n;
 	system("cls");
-	setColor(white, black);
+	setBackColor(white, black);
 	printf("\n\n\n\n");
 	printf("\t\t\t\t    ___   _   __  __ ___    _____   _____ ___\n");
 	printf("\t\t\t\t   / __| /_\\ |  \\/  | __|  / _ \\ \\ / / __| _ \\ \n");

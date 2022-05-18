@@ -84,6 +84,14 @@ void setColor(int color) {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
 }
 
+
+void setBackColor(int forground, int background) {
+	HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);	//콘솔 핸들 가져오기
+	int code = forground + background * 16;
+	SetConsoleTextAttribute(consoleHandle, code);
+}
+
+
 void print_by_name(char* name) {
 	// set color : GREY
 	setColor(GREY);

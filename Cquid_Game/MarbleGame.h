@@ -1,17 +1,17 @@
-ï»¿#include <stdio.h>
+#include <stdio.h>
 #include <windows.h>
 #include <time.h>
 
 #ifndef KEY_CODE
 #define KEY_CODE
 
-/*í•¨ìˆ˜ ì„ ì–¸*/
+/*ÇÔ¼ö ¼±¾ð*/
 
 
 
-void init();
+void CursorView();
 void gotoxy(int, int);
-void setColor(int, int);
+void setBackColor(int, int);
 void gLoop(int);
 void move(int*, int*, int, int, int*, int*);
 int keyControl(int, int, int);
@@ -24,7 +24,7 @@ int drawlevel();
 void endDraw();
 void failDraw();
 
-//í‚¤ë³´ë“œ ê°’
+//Å°º¸µå °ª
 #define ESC 27
 #define ENTER 13
 #define UP 72
@@ -57,6 +57,3 @@ enum {
 };
 
 #endif
-
-
-
