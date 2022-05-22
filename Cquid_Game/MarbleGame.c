@@ -259,6 +259,9 @@ int keyControl(int x, int y, int num)
 		case ENTER: {
 			return y - key;
 		}
+		case ESC: {
+			return 1;
+		}
 		}
 	}
 	return 0;
@@ -322,7 +325,7 @@ void titleDraw() {
 	setBackColor(white, black);
 	printf("\n\n");
 	printf("          ○                        - - - - - ○ △ □ 구슬 치기 ○ △ □ - - - - -                      △ \n\n");
-	printf("                 △                |      구슬을 쳐서 미로를 탈출하십시오      |        ○\n\n");
+	printf("                 △                |      구슬을 쳐서 미로를 탈출하십시오		   |        ○\n\n");
 	printf("                                   |           벽에 닿아도 죽지 않습니다.          |\n\n");
 	printf("                       □          |       위(↑), 아래(↓), 오(→), 왼(←)        |              □\n\n");
 	printf("     △                            |       Enter (시작키) ESC (종료키)             |       ○\n\n");
@@ -335,19 +338,15 @@ int menuDraw() {
 	int input;
 	gotoxy(x - 2, y);
 	printf("> 게임시작");
+	gotoxy(x, y + 1);
+	printf("게임종료");
 	setBackColor(darkgray, black);
+
 	gotoxy(x - 15, y + 3);
 	printf("developed by 배서연, 하진, 이혜령");
 	setBackColor(white, black);
 
-	while (1) {
-		input = _getch();
-		if (input == ENTER)	return 1;
-
-		else if (input == ESC) {
-			system("cls"); main();
-		}
-	}
+	return keyControl(x, y, 1);
 }
 
 int maplistDraw() {
@@ -410,7 +409,10 @@ void endDraw() {
 
 	while (1) {
 		input = _getch();
-		if (input == ENTER) break;
+		if (input == ENTER) {
+			system("cls");
+			break;
+		}
 	}
 }
 
@@ -440,16 +442,17 @@ int main_marble() {
 	system("cls");
 	while (1) {
 		titleDraw();
-		if (menuDraw()) {
+		if (!menuDraw()) {
 			level_num = maplistDraw();
 			if (level_num == 0)	gLoop(0);
 			else if (level_num == 1) gLoop(1);
 			else if (level_num == 2) gLoop(2);
 			else if (level_num == 3) gLoop(3);
 		}
-		else
+		else {
+			system("cls");
 			break;
-		system("cls");
+		}
 	}
 	return 0;
 }

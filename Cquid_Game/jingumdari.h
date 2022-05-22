@@ -8,7 +8,7 @@
 /*기본 함수*/
 
 void gotoxy(int, int);
-void setColor(int, int);
+void setColor(int);
 
 /*함수 선언*/
 void drawTitle();
@@ -49,6 +49,3 @@ enum {
 };
 
 #endif
-
-
-
