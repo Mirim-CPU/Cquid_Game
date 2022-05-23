@@ -53,12 +53,15 @@ int main() {
 
 
 	while (1) {
+		PlaySound(TEXT("./sound/mainback.wav"), NULL, SND_ASYNC | SND_LOOP);
+
+
 		title();
 		focus();
-		PlaySound(NULL, 0, 0);
+
 		int chk = 0;
 		gotoxy(13, 18); printf("게임 선택 : \n");
-		gotoxy(20, 18); scanf_s("%d", &chk);
+		gotoxy(25, 18); scanf_s("%d", &chk);
 
 		switch (chk)
 		{

@@ -96,9 +96,20 @@ void Mugunghwa_title() {
 
 //설명
 void manual() {
+	gotoxy(82, 8);  printf("_____________________________");
+	gotoxy(85, 10);  printf("무궁화 꽃이 피었습니다");
+	gotoxy(93, 12);  printf("○△□ ");
+
+	gotoxy(82, 13);  printf("참가자는 방향키(→←↑↓)를 ");
+	gotoxy(85, 14);  printf("눌러 영희가 있는 곳 까지");
+	gotoxy(88, 15);  printf("도착해야합니다");
+
+	gotoxy(82, 17);  printf("ESC를 누르면 게임종료가 됩니다");
+	gotoxy(93, 18);  printf("○△□ ");
+	gotoxy(82, 19);  printf("_____________________________");
 
 
-
+	gotoxy(20, 28);  printf("스페이스와 방향키로 시작!");
 
 }
 
@@ -171,7 +182,10 @@ unsigned _stdcall character_control() {
 	gotoxy_2x(x, y); printf("■");
 	while (inputChk) {
 
-		int n = _getch();
+
+
+
+		int n = MkeyControl();
 
 		//게임종료
 		if (n == 27) {
@@ -181,7 +195,7 @@ unsigned _stdcall character_control() {
 			system("cls");
 			main_mugunghwa();
 		}
-		n = MkeyControl();
+
 		switch (n)
 		{
 
@@ -277,7 +291,7 @@ void showYoungHee(int show) {
 		gotoxy_2x(x, y++);  printf("＼　　     ノ ");
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
 		gotoxy_2x(x, y++);  printf("  /⌒＼-イ ");
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), LIGHTRED);
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), RED);
 		gotoxy_2x(x, y++);  printf(" (　r 　 ｜ ");
 		gotoxy_2x(x, y++);  printf(" ＼ノノ--｜ ");
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
@@ -306,13 +320,19 @@ void showYoungHee(int show) {
 void showGameOver() {
 
 	system("cls");
-	PlaySound(NULL, 0, 0);
+	PlaySound(TEXT("./sound/mugunghwa/tang.wav"), NULL, SND_FILENAME | SND_ASYNC); 
+	system("color 40");
+	Sleep(1000);
+	system("color 0C");
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
+	gotoxy_2x(27, 13); printf("GAME OVER");
+	gotoxy_2x(25, 15); printf("영희에게 걸려버렸다!");
+	gotoxy_2x(28, 17); printf("점수 : %d", score);
+	gotoxy_2x(25, 20); printf("2초후 메인화면으로...");
+
 
 	score = 0;
 	heart = 5;
-
-	gotoxy_2x(30, 13); printf("GAME OVER");
-
 	Sleep(2000);
 	system("cls");
 	main_mugunghwa();
@@ -355,6 +375,7 @@ unsigned _stdcall  MusicTimer() {
 
 		switch (rn)
 		{
+	
 		case 0:	PlaySound(TEXT("./sound/mugunghwa/sound1.wav"), NULL, SND_FILENAME | SND_ASYNC); soundtime = 4.5; break;
 		case 1:	PlaySound(TEXT("./sound/mugunghwa/sound2.wav"), NULL, SND_FILENAME | SND_ASYNC); soundtime = 3.2; break;
 		case 2:	PlaySound(TEXT("./sound/mugunghwa/sound3.wav"), NULL, SND_FILENAME | SND_ASYNC); soundtime = 2.3; break;
@@ -425,7 +446,7 @@ void showHeart() {
 }
 
 
-//점수 나타내기6
+//점수 나타내기
 void showScore() {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BLUE);
 
@@ -529,27 +550,26 @@ void mission() {
 //게임 시작
 void StartGame() {
 	system("cls");
+
 	CursorView(); //커서 숨기기
 	showScore();//점수판
 	showHeart();//목숨판
 	mission(); //미션
-
 	map(); //맵 그리기
-
-
-
 	system("pause>null\n");
 }
+
+
 void  main_mugunghwa() {
 
-
+	PlaySound(TEXT("./sound/mugunghwa/back.wav"), NULL, SND_ASYNC | SND_LOOP);
 	CursorView();
 	system("mode con: cols=120 lines=30");
 	system("title 무궁화꽃이 피었습니다");
-
+	manual();
 	Mugunghwa_title();
 	showMenu();
-
+	print_by_name("조해정 황소은");
 	while (1) {
 		switch (menu()) {
 		case 0: 	inputChk = 1;  StartGame(); break; //게임시작
