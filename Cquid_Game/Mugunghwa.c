@@ -37,6 +37,9 @@ int MkeyControl() {
 	while (1) {
 		if (_kbhit()) {
 			c = _getch();
+			if (c == 27) {
+				system("cls");
+				return ESC; break; }
 			if (c == -32) {
 				c = _getch();
 				switch (c) {
@@ -155,7 +158,17 @@ int  menu() {
 		}
 		case SPACE: {
 			return y - 22;
-		}	break;
+			break;
+		}	
+		case ESC: {
+			TerminateThread(musicThread, 0);
+			TerminateThread(controlThread, 0);
+			system("cls");
+			//main();
+			//printf("00");
+			return 2;
+			break;
+		}
 		}
 	}
 
@@ -182,18 +195,20 @@ unsigned _stdcall character_control() {
 	gotoxy_2x(x, y); printf("■");
 	while (inputChk) {
 
-
-
-
 		int n = MkeyControl();
 
 		//게임종료
-		if (n == 27) {
+		if (n == ESC) {
 			score = 0;
 			heart = 5;
 			PlaySound(NULL, 0, 0);
-			system("cls");
-			main_mugunghwa();
+
+		    TerminateThread(musicThread, 0);
+			TerminateThread(controlThread, 0);
+			//system("cls");
+			printf("000");
+			//main_mugunghwa();
+			break;
 		}
 
 		switch (n)
@@ -231,9 +246,8 @@ unsigned _stdcall character_control() {
 			else heart--;
 			break;
 		}
-
-
 		}
+
 		switch (i / 5)
 		{
 		case 0: gotoxy_2x(x, y++); printf("  "); break;
@@ -351,8 +365,8 @@ void check() {
 
 	}
 
+	char ch;
 	if (_kbhit()) {
-
 		if (thisTime > (double)soundtime && thisTime < (double)soundtime + 2) {
 			inputChk = 0;
 			showGameOver();
@@ -574,7 +588,7 @@ void  main_mugunghwa() {
 		switch (menu()) {
 		case 0: 	inputChk = 1;  StartGame(); break; //게임시작
 		case 2: 	system("cls"); main();  break; // 게임종료
-
+		
 		}
 
 	}
