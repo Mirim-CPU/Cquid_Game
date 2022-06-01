@@ -16,7 +16,10 @@ int answer_len = 160;
 int heart = 5; //목숨값
 int inputChk = 1;
 
-
+typedef struct user {
+	char name[20];
+	int score;
+}User;
 
 
 
@@ -554,12 +557,46 @@ void mission() {
 	}
 }
 
+void check_rank() {
+	FILE* fp;
+	User user;
+	User user2;
 
+	fp = fopen("rank.txt", "r");
+	if (fp == NULL) {
+		printf("파일 열기 실패\n");
+		exit(1);
+	}
 
+	fscanf(fp, "%s %d", user.name, &user.score);
+	//printf("%s : %d\n", user.name, user.score);
 
+	fclose(fp);
 
+	scanf("%s %d", user2.name, &user2.score);
 
+	if (user.score < user2.score) {
+		fp = fopen("rank.txt", "w");
+		fprintf(fp, "%s %d\n", user2.name, user2.score);
+		fclose(fp);
+	}
+}
 
+void show_rank() {
+	FILE* fp;
+	User user;
+
+	fp = fopen("rank.txt", "r");
+	if (fp == NULL) {
+		printf("파일 열기 실패\n");
+		exit(1);
+	}
+
+	fscanf(fp, "%s %d", user.name, &user.score);
+	//printf("%s : %d\n", user.name, user.score);
+
+	fclose(fp);
+}
 
 //게임 시작
 void StartGame() {
