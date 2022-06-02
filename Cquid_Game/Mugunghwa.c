@@ -16,12 +16,13 @@ int answer_len = 160;
 int heart = 5; //목숨값
 int inputChk = 1;
 
+void check_rank();
 typedef struct user {
 	char name[20];
 	int score;
 }User;
 
-
+User user;
 
 //좌표
 void gotoxy_2x(int x, int y)
@@ -182,6 +183,7 @@ void checkFinish(int x, int y) {
 	if (x >= 50 && y >= 1 && y <= 23) {
 		system("cls");
 		gotoxy_2x(30, 13); printf("완주");
+		check_rank();
 	}
 }
 
@@ -347,7 +349,7 @@ void showGameOver() {
 	gotoxy_2x(28, 17); printf("점수 : %d", score);
 	gotoxy_2x(25, 20); printf("2초후 메인화면으로...");
 
-
+	check_rank();
 	score = 0;
 	heart = 5;
 	Sleep(2000);
@@ -557,10 +559,10 @@ void mission() {
 	}
 }
 
+//1위 계산, 파일 입출력 저장
 void check_rank() {
 	FILE* fp;
-	User user;
-	User user2;
+	User first_place;
 
 	fp = fopen("rank.txt", "r");
 	if (fp == NULL) {
@@ -568,23 +570,24 @@ void check_rank() {
 		exit(1);
 	}
 
-	fscanf(fp, "%s %d", user.name, &user.score);
+	fscanf(fp, "%s %d", first_place.name, &first_place.score);
 	//printf("%s : %d\n", user.name, user.score);
 
 	fclose(fp);
 
-	scanf("%s %d", user2.name, &user2.score);
-
-	if (user.score < user2.score) {
+	if (first_place.score < user.score) {
 		fp = fopen("rank.txt", "w");
-		fprintf(fp, "%s %d\n", user2.name, user2.score);
+		fprintf(fp, "%s %d\n", user.name, user.score);
+		user.score = score;
 		fclose(fp);
 	}
 }
 
+//1위 보여주기
 void show_rank() {
 	FILE* fp;
-	User user;
+	fp = fopen("rank.txt", "w");
+	fclose(fp);
 
 	fp = fopen("rank.txt", "r");
 	if (fp == NULL) {
@@ -596,12 +599,23 @@ void show_rank() {
 	//printf("%s : %d\n", user.name, user.score);
 
 	fclose(fp);
+
+	gotoxy_2x(45, 5);
+	printf("!!! %s : %d !!!", user.name, user.score);
+}
+
+//참가자 이름 입력
+void setUser() {
+	system("cls");
+	printf("참가자님 이름을 입력해주세요.\n");
+	scanf("%s", user.name);
 }
 
 //게임 시작
 void StartGame() {
-	system("cls");
+	setUser();
 
+	system("cls");
 	CursorView(); //커서 숨기기
 	showScore();//점수판
 	showHeart();//목숨판
@@ -620,6 +634,7 @@ void  main_mugunghwa() {
 	manual();
 	Mugunghwa_title();
 	showMenu();
+	show_rank();
 	print_by_name("조해정 황소은");
 	while (1) {
 		switch (menu()) {
