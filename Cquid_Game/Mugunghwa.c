@@ -600,7 +600,12 @@ void show_rank() {
 
 	fclose(fp);
 
-	gotoxy_2x(45, 5);
+	gotoxy_2x(41, 3);printf("旨收收收收收收收收收收收收收收收收收收收收收收收收收收收旬\n");
+	gotoxy_2x(41, 4);printf("早                           早\n");
+	gotoxy_2x(41, 5);printf("早                           早\n");
+	gotoxy_2x(41, 6);printf("早                           早\n");
+	gotoxy_2x(41, 7);printf("曲收收收收收收收收收收收收收收收收收收收收收收收收收收收旭\n");
+	gotoxy_2x(43, 5);
 	printf("!!! %s : %d !!!", user.name, user.score);
 }
 
