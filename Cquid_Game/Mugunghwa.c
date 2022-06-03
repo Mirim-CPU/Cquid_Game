@@ -606,8 +606,25 @@ void show_rank() {
 
 //참가자 이름 입력
 void setUser() {
+	int setX=17, setY=9;
 	system("cls");
-	printf("참가자님 이름을 입력해주세요.\n");
+	gotoxy_2x(setX, setY++);printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
+	gotoxy_2x(setX, setY++);printf("┃                                                            ┃\n");
+	gotoxy_2x(setX, setY++);printf("┃                                                            ┃\n");
+	gotoxy_2x(setX, setY++);printf("┃                                                            ┃\n");
+	gotoxy_2x(setX, setY++);printf("┃                                                            ┃\n");
+	gotoxy_2x(setX, setY++);printf("┃                                                            ┃\n");
+	gotoxy_2x(setX, setY++);printf("┃                                                            ┃\n");
+	gotoxy_2x(setX, setY++);printf("┃                                                            ┃\n");
+	gotoxy_2x(setX, setY++);printf("┃                                                            ┃\n");
+	gotoxy_2x(setX, setY++);printf("┃                                                            ┃\n");
+	gotoxy_2x(setX, setY++);printf("┃                                                            ┃\n");
+	gotoxy_2x(setX, setY++);printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
+	
+	setY = 9;
+	gotoxy_2x(setX+8, setY+4);
+	printf("*참가자님 이름을 입력해주세요*\n");
+	gotoxy_2x(setX + 14,setY+6);
 	scanf("%s", user.name);
 }
 
