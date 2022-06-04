@@ -632,7 +632,7 @@ void setUser() {
 	
 	setY = 9;
 	gotoxy_2x(setX+8, setY+4);
-	printf("*참가자님 이름을 입력해주세요*\n");
+	printf("* 참가자님 이름을 입력해주세요 *\n");
 	gotoxy_2x(setX + 14,setY+6);
 	scanf("%s", user.name);
 }
