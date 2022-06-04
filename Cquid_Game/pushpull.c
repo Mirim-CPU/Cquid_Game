@@ -39,6 +39,7 @@ enum KEYBOARD
 
 // 게임 시작 메인 함수
 void main_pushpull() {
+	system("title 줄다리기 ");
 	system("cls");
 	PlaySound(TEXT("./sound/push.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
 	while (1) {

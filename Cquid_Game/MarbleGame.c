@@ -437,6 +437,7 @@ void failDraw()
 
 //메인
 int main_marble() {
+	system("title 구슬치기 ");
 	CursorView();
 	int level_num;
 	system("cls");

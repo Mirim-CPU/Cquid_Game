@@ -1,13 +1,14 @@
 #include "jingumdari.h"
 
 int main_jingumdari(void) {
+	system("title Â¡°Ë´Ù¸® ");
 	while (1) {
 		drawTitle();
 		if (!JmenuDraw()) {
 			gloop();
 		}
 		else
-			break;
+			main();
 	}
 	system("cls");
 	return 0;
@@ -128,7 +129,7 @@ int JkeyControl() {
 			break;
 		}
 		case ESC: {
-			break;
+			main_jingumdari(); break;
 		}
 		}
 	}

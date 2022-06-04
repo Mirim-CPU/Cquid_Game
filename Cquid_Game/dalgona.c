@@ -112,6 +112,8 @@ enum MENU gamemenu() {
 
 // 게임 시작화면 
 void printstart() {
+
+
     int x = 40;
     int y = 11;
     system("cls");
@@ -179,6 +181,7 @@ void printstart() {
 
 // 게임시작 시작종료처리 함수
 void main_dalgona() {
+    system("title 설탕뽑기 ");
     system("cls");
     PlaySound(TEXT("./sound/dalgona.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
     while (1) {
