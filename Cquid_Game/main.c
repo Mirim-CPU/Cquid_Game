@@ -4,6 +4,7 @@
 #include "pushpull.h"
 #include"dalgona.h"
 #include "Mugunghwa.h"
+#include "rhythm.h"
 
 #define ESC 27
 #define ENTER 13
@@ -69,7 +70,7 @@ int main(void) {
 
 		case 6:
 			rectangle(114, 29, 2, 1);
-
+			rhythm_main();
 			break;
 
 		default:

@@ -13,6 +13,7 @@ void main_marble();
 void main_mugunghwa();
 void main_dalgona();
 void main_jingumdari();
+void rhythm_main();
 
 
 
