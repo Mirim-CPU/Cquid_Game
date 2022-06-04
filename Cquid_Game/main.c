@@ -5,65 +5,95 @@
 #include"dalgona.h"
 #include "Mugunghwa.h"
 
+
+
+//솔져 그리기
+void drawSolider(int x) {
+	setColor(RED);
+	gotoxy(x, 3); printf("       ■■■■");
+	gotoxy(x, 4); printf("     ■        ■");
+	gotoxy(x, 5); printf("   ■            ■");
+	gotoxy(x, 6); printf("  ■              ■");
+	gotoxy(x, 7); printf("  ■              ■");
+	gotoxy(x, 8); printf("  ■              ■");
+	gotoxy(x, 9); printf("  ■              ■");
+	gotoxy(x, 10); printf("    ■          ■");
+	gotoxy(x, 11); printf("      ■      ■");
+	gotoxy(x, 12); printf("        ■■■");
+	gotoxy(x, 13); printf("      ■■■■■");
+	gotoxy(x, 14); printf("   ■■■■■■■■");
+	gotoxy(x, 15); printf("  ■■■■■■■■■");
+}
+
 //타이틀 찍기
 void title() {
-	gotoxy(60, 4); printf(" _____ ____  __    __ _____ _____   ");
-	gotoxy(60, 5); printf("/ ____/ __ ＼| |  | ||_   _|  __ ＼ ");
-	gotoxy(60, 6); printf("| |   | |  | | |  | |  | | | |  | |");
-	gotoxy(60, 7); printf("| |   | |  | | |  | |  | | | |  | | ");
-	gotoxy(60, 8); printf("| |___| |__| | |__| | _| |_| |__| | ");
-	gotoxy(60, 9); printf("＼____＼___＼＼____/ |_____|_____/  ");
+	drawSolider(15);
 
-	gotoxy(60, 10); printf("   _____          __    __ ______ ");
-	gotoxy(60, 11); printf("  / ____|   /＼   |  ＼/  |  ____|");
-	gotoxy(60, 12); printf(" | |  __   /  ＼  | ＼  / | |__ ");
-	gotoxy(60, 13); printf(" | | |_ | / /＼＼ | |＼/| |  __|");
-	gotoxy(60, 14); printf(" | |__| |/ ____ ＼| |   | | |____ ");
-	gotoxy(60, 15); printf("  ＼____/_/   ＼_＼_|   |_|______|");
+	setColor(yellow);
+	int x = 42;
+	gotoxy(x, 4); printf(" _____ ____  __    __ _____ _____   ");
+	gotoxy(x, 5); printf("/ ____/ __ ＼| |  | ||_   _|  __ ＼ ");
+	gotoxy(x, 6); printf("| |   | |  | | |  | |  | | | |  | |");
+	gotoxy(x, 7); printf("| |   | |  | | |  | |  | | | |  | | ");
+	gotoxy(x, 8); printf("| |___| |__| | |__| | _| |_| |__| | ");
+	gotoxy(x, 9); printf("＼____＼___＼＼____/ |_____|_____/  ");
+
+	gotoxy(x, 10); printf("   _____          __    __ ______ ");
+	gotoxy(x, 11); printf("  / ____|   /＼   |  ＼/  |  ____|");
+	gotoxy(x, 12); printf(" | |  __   /  ＼  | ＼  / | |__ ");
+	gotoxy(x, 13); printf(" | | |_ | / /＼＼ | |＼/| |  __|");
+	gotoxy(x, 14); printf(" | |__| |/ ____ ＼| |   | | |____ ");
+	gotoxy(x, 15); printf("  ＼____/_/   ＼_＼_|   |_|______|");
+
+	drawSolider(80);
+
+	setColor(WHITE);
+	gotoxy(86, 5); printf("■■■■■");
+	gotoxy(86, 6); printf("■      ■");
+	gotoxy(86, 7); printf("■      ■");
+	gotoxy(86, 8); printf("■■■■■");
+
+	setColor(WHITE);
+	gotoxy(21, 5); printf("  ●●●");
+	gotoxy(21, 6); printf("●      ●");
+	gotoxy(21, 7); printf("●      ●");
+	gotoxy(21, 8); printf("  ●●●");
+
+
+
+
 }
 
 //게임 포커스
 void focus() {
 
 
+	setColor(WHITE);
+	gotoxy(30, 25); printf("① 무궁화 꽃\n");
+	gotoxy(54, 25);  printf("② 달고나뽑기");
+	gotoxy(78, 25);  printf("③ 줄다리기");
 
-
-	/*gotoxy(11, 20);
-	printf("┌─────────────────┐\n");
-	gotoxy(11, 21);
-	printf("│                 │\n");
-	gotoxy(11, 22);
-	printf("│                 │\n");
-	gotoxy(11, 23);
-	printf("│                 │\n");
-	gotoxy(11, 24);
-	printf("└─────────────────┘\n");*/
-
-	gotoxy(13, 22); printf("① 무궁화 꽃\n");
-	gotoxy(26, 22);  printf("② 달고나뽑기");
-	gotoxy(39, 22);  printf("③ 줄다리기");
-	gotoxy(13, 26);  printf("④ 구슬치기");
-	gotoxy(26, 26);  printf("⑤ 징검다리");
-	gotoxy(39, 26);  printf("⑥ 리듬게임");
+	gotoxy(30, 29);  printf("④ 구슬치기");
+	gotoxy(54, 29);  printf("⑤ 징검다리");
+	gotoxy(78, 29);  printf("⑥ 리듬게임");
 }
 
 
 
 int main() {
 
+	PlaySound(TEXT("./sound/mainback.wav"), NULL, SND_ASYNC | SND_LOOP);
+	title();
+	focus();
+	gotoxy(48, 20); printf("게임 선택 후 엔터 : \n");
 
 	while (1) {
-		PlaySound(TEXT("./sound/mainback.wav"), NULL, SND_ASYNC | SND_LOOP);
+
+		int select = 0;
+		gotoxy(69, 20); scanf_s("%d", &select);
 
 
-		title();
-		focus();
-
-		int chk = 0;
-		gotoxy(13, 18); printf("게임 선택 : \n");
-		gotoxy(25, 18); scanf_s("%d", &chk);
-
-		switch (chk)
+		switch (select)
 		{
 		case 1: main_mugunghwa(); break;
 		case 2: main_dalgona();  break;
@@ -71,12 +101,14 @@ int main() {
 		case 4: main_marble(); break;
 		case 5: main_jingumdari(); break;
 		case 6: break;
+		default: 	gotoxy(69, 20); printf(" "); 	break;
 
 		}
+
 	}
 
-	
 
-		system("cls");
+
+	system("cls");
 	return 0;
 }
