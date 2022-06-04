@@ -4,6 +4,7 @@
 #include "pushpull.h"
 #include"dalgona.h"
 #include "Mugunghwa.h"
+#include "rhythm.h"
 
 #define ESC 27
 #define ENTER 13
@@ -21,6 +22,21 @@ int select_game(void);
 int main(void) {
 	PlaySound(TEXT("./sound/mainback.wav"), NULL, SND_ASYNC | SND_LOOP);
 	set_console();
+
+
+	//¹«±ÃÈ­ ·©Å·ÆÄÀÏ
+	FILE* fp;
+
+	if (fp = fopen("rank.txt", "r")) {
+		fclose(fp);
+	}
+	else {
+		fp = fopen("rank.txt", "w");
+		fprintf(fp, "firstplace 0"); 
+
+		fclose(fp);
+	}
+	
 
 	// input value
 	int select;
@@ -56,7 +72,7 @@ int main(void) {
 
 		case 6:
 			rectangle(114, 29, 2, 1);
-
+			rhythm_main();
 			break;
 
 		default:

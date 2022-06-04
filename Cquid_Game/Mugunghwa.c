@@ -60,7 +60,7 @@ int MkeyControl() {
 				}
 			}
 			else if (c == ' ')
-				return SPACE;
+				return ENTER;
 		}
 	}
 }
@@ -116,7 +116,7 @@ void manual() {
 	gotoxy(82, 19);  printf("_____________________________");
 
 
-	gotoxy(20, 28);  printf("스페이스와 방향키로 시작!");
+	gotoxy(20, 28);  printf("엔터키와 방향키로 시작!");
 
 }
 
@@ -160,7 +160,7 @@ int  menu() {
 
 			break;
 		}
-		case SPACE: {
+		case ENTER: {
 			return y - 22;
 			break;
 		}	
@@ -578,11 +578,12 @@ void check_rank() {
 	//printf("%s : %d\n", user.name, user.score);
 
 	fclose(fp);
+	user.score = score;
 
 	if (first_place.score < user.score) {
 		fp = fopen("rank.txt", "w");
 		fprintf(fp, "%s %d\n", user.name, user.score);
-		user.score = score;
+		
 		fclose(fp);
 	}
 }
@@ -590,8 +591,7 @@ void check_rank() {
 //1위 보여주기
 void show_rank() {
 	FILE* fp;
-	fp = fopen("rank.txt", "w");
-	fclose(fp);
+	User first_place;
 
 	fp = fopen("rank.txt", "r");
 	if (fp == NULL) {
@@ -599,18 +599,20 @@ void show_rank() {
 		exit(1);
 	}
 
-	fscanf(fp, "%s %d", user.name, &user.score);
-	//printf("%s : %d\n", user.name, user.score);
+	fscanf(fp, "%s %d", first_place.name, &first_place.score);
+	//printf("%s : %d\n", first_place.name, first_place.score);
 
 	fclose(fp);
 
-	gotoxy_2x(41, 3);printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
+	setColor(YELLOW);
+	gotoxy_2x(41, 3);printf("┏━━━━━━━━  현재 1위 ━━━━━━━━┓\n");
 	gotoxy_2x(41, 4);printf("┃                           ┃\n");
 	gotoxy_2x(41, 5);printf("┃                           ┃\n");
 	gotoxy_2x(41, 6);printf("┃                           ┃\n");
 	gotoxy_2x(41, 7);printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
 	gotoxy_2x(43, 5);
-	printf("!!! %s : %d !!!", user.name, user.score);
+	setColor(WHITE);
+	printf(">> %s : %d <<", first_place.name, first_place.score);
 }
 
 //참가자 이름 입력
@@ -632,7 +634,7 @@ void setUser() {
 	
 	setY = 9;
 	gotoxy_2x(setX+8, setY+4);
-	printf("*참가자님 이름을 입력해주세요*\n");
+	printf("* 참가자님 이름을 입력해주세요 *\n");
 	gotoxy_2x(setX + 14,setY+6);
 	scanf("%s", user.name);
 }

@@ -146,6 +146,7 @@
     <ClCompile Include="modules.c" />
     <ClCompile Include="Mugunghwa.c" />
     <ClCompile Include="pushpull.c" />
+    <ClCompile Include="rhythm.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dalgona.h" />
@@ -154,6 +155,7 @@
     <ClInclude Include="modules.h" />
     <ClInclude Include="Mugunghwa.h" />
     <ClInclude Include="pushpull.h" />
+    <ClInclude Include="rhythm.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

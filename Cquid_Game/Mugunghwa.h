@@ -27,4 +27,5 @@ enum Color
 #define LEFT  14
 #define SPACE 15
 #define ESC 27
+#define ENTER 13
 

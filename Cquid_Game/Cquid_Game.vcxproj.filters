@@ -36,6 +36,9 @@
     <ClCompile Include="Mugunghwa.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="rhythm.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MarbleGame.h">
@@ -54,6 +57,9 @@
       <Filter>소스 파일</Filter>
     </ClInclude>
     <ClInclude Include="Mugunghwa.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="rhythm.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
   </ItemGroup>
