@@ -578,11 +578,12 @@ void check_rank() {
 	//printf("%s : %d\n", user.name, user.score);
 
 	fclose(fp);
+	user.score = score;
 
 	if (first_place.score < user.score) {
 		fp = fopen("rank.txt", "w");
 		fprintf(fp, "%s %d\n", user.name, user.score);
-		user.score = score;
+		
 		fclose(fp);
 	}
 }
@@ -590,8 +591,7 @@ void check_rank() {
 //1위 보여주기
 void show_rank() {
 	FILE* fp;
-	fp = fopen("rank.txt", "w");
-	fclose(fp);
+	User first_place;
 
 	fp = fopen("rank.txt", "r");
 	if (fp == NULL) {
@@ -599,8 +599,8 @@ void show_rank() {
 		exit(1);
 	}
 
-	fscanf(fp, "%s %d", user.name, &user.score);
-	//printf("%s : %d\n", user.name, user.score);
+	fscanf(fp, "%s %d", first_place.name, &first_place.score);
+	//printf("%s : %d\n", first_place.name, first_place.score);
 
 	fclose(fp);
 
@@ -610,7 +610,7 @@ void show_rank() {
 	gotoxy_2x(41, 6);printf("┃                           ┃\n");
 	gotoxy_2x(41, 7);printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
 	gotoxy_2x(43, 5);
-	printf("!!! %s : %d !!!", user.name, user.score);
+	printf("!!! %s : %d !!!", first_place.name, first_place.score);
 }
 
 //참가자 이름 입력

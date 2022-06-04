@@ -22,6 +22,19 @@ int main(void) {
 	PlaySound(TEXT("./sound/mainback.wav"), NULL, SND_ASYNC | SND_LOOP);
 	set_console();
 
+	FILE* fp;
+
+	if (fp = fopen("rank.txt", "r")) {
+		fclose(fp);
+	}
+	else {
+		fp = fopen("rank.txt", "w");
+		fprintf(fp, "firstplace 0"); 
+
+		fclose(fp);
+	}
+	
+
 	// input value
 	int select;
 	while (select = select_game()) {
