@@ -5,9 +5,88 @@
 #include"dalgona.h"
 #include "Mugunghwa.h"
 
+#define ESC 27
+#define ENTER 13
+#define UP 72
+#define DOWN 80
+#define LEFT 75
+#define RIGHT 77
+
+void set_console(void);
+void set_cursor(int flag, int size);
+
+void draw_main(void);
+int select_game(void);
+
+int main(void) {
+	PlaySound(TEXT("./sound/mainback.wav"), NULL, SND_ASYNC | SND_LOOP);
+	set_console();
+
+	// input value
+	int select;
+	while (select = select_game()) {
+		PlaySound(NULL, 0, 0);
+
+		switch (select)
+		{
+		case 1:
+			rectangle(114, 29, 2, 1);
+			main_mugunghwa();
+			break;
+
+		case 2:
+			rectangle(114, 29, 2, 1);
+			main_dalgona();
+			break;
+
+		case 3:
+			rectangle(114, 29, 2, 1);
+			main_pushpull();
+			break;
+
+		case 4:
+			rectangle(114, 29, 2, 1);
+			main_marble();
+			break;
+
+		case 5:
+			rectangle(114, 29, 2, 1);
+			main_jingumdari();
+			break;
+
+		case 6:
+			rectangle(114, 29, 2, 1);
+
+			break;
+
+		default:
+			break;
+		}
+	}
+
+	return 0;
+}
 
 
-//솔져 그리기
+void set_console(void) {
+	// set the console size
+	system("mode con:cols=120 lines=31");
+	// hide cursor
+	set_cursor(0, 1);
+	// set title
+	system("title Cquid Game");
+	// clear console
+	system("cls");
+}
+
+void set_cursor(int flag, int size) {
+	CONSOLE_CURSOR_INFO cursor;
+	cursor.bVisible = flag;
+	cursor.dwSize = size;
+	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursor);
+}
+
+
 void drawSolider(int x) {
 	setColor(RED);
 	gotoxy(x, 3); printf("       ■■■■");
@@ -25,8 +104,8 @@ void drawSolider(int x) {
 	gotoxy(x, 15); printf("  ■■■■■■■■■");
 }
 
-//타이틀 찍기
-void title() {
+void draw_main(void) {
+	system("cls");
 	drawSolider(15);
 
 	setColor(yellow);
@@ -45,9 +124,14 @@ void title() {
 	gotoxy(x, 14); printf(" | |__| |/ ____ ＼| |   | | |____ ");
 	gotoxy(x, 15); printf("  ＼____/_/   ＼_＼_|   |_|______|");
 
+
+
 	drawSolider(80);
 
 	setColor(WHITE);
+
+	gotoxy(52, 18); printf("게임 선택후 엔터");
+
 	gotoxy(86, 5); printf("■■■■■");
 	gotoxy(86, 6); printf("■      ■");
 	gotoxy(86, 7); printf("■      ■");
@@ -60,55 +144,84 @@ void title() {
 	gotoxy(21, 8); printf("  ●●●");
 
 
-
-
-}
-
-//게임 포커스
-void focus() {
-
-
 	setColor(WHITE);
-	gotoxy(30, 25); printf("① 무궁화 꽃\n");
-	gotoxy(54, 25);  printf("② 달고나뽑기");
-	gotoxy(78, 25);  printf("③ 줄다리기");
+	gotoxy(30, 22); printf("① 무궁화꽃\n");
+	gotoxy(54, 22);  printf("② 설탕뽑기");
+	gotoxy(78, 22);  printf("③ 줄다리기");
 
-	gotoxy(30, 29);  printf("④ 구슬치기");
-	gotoxy(54, 29);  printf("⑤ 징검다리");
-	gotoxy(78, 29);  printf("⑥ 리듬게임");
+	gotoxy(30, 26);  printf("④ 구슬치기");
+	gotoxy(54, 26);  printf("⑤ 징검다리");
+	gotoxy(78, 26);  printf("⑥ 리듬게임");
+
+
 }
 
+int select_game(void) {
+	draw_main();
 
+	int select_x[3] = { 26, 50, 74 };
+	int select_y[2] = { 20, 24 };
 
-int main() {
+	// default menu 1
+	int select = 1;
 
-	PlaySound(TEXT("./sound/mainback.wav"), NULL, SND_ASYNC | SND_LOOP);
-	title();
-	focus();
-	gotoxy(48, 20); printf("게임 선택 후 엔터 : \n");
+	int i, j, x, y;
 
-	while (1) {
+	int key = 0;
+	while (key != ENTER) {
+		// 1, 4 | 2, 5 | 3, 6 | 
+		i = (select - 1) % 3;
+		x = select_x[i];
+		// 1, 2, 3| 5, 6, 7
+		j = select <= 3 ? 0 : 1;
+		y = select_y[j];
 
-		int select = 0;
-		gotoxy(69, 20); scanf_s("%d", &select);
+		// print rectangle
+		print_auto_y(&x, &y, "┌─────────────────┐");
+		print_auto_y(&x, &y, "│");
+		gotoxy(x + 18, y - 1);			printf("│");
+		print_auto_y(&x, &y, "│");
+		gotoxy(x + 18, y - 1);			printf("│");
+		print_auto_y(&x, &y, "│");
+		gotoxy(x + 18, y - 1);			printf("│");
+		print_auto_y(&x, &y, "└─────────────────┘");
 
+		// ↑, ↓, ←, →
+		key = _getch();
 
-		switch (select)
-		{
-		case 1: main_mugunghwa(); break;
-		case 2: main_dalgona();  break;
-		case 3: main_pushpull(); break;
-		case 4: main_marble(); break;
-		case 5: main_jingumdari(); break;
-		case 6: break;
-		default: 	gotoxy(69, 20); printf(" "); 	break;
+		switch (key) {
+		case RIGHT:
+			select = select == 6 ? 6 : select + 1;
+			break;
 
+		case LEFT:
+			select = select == 1 ? 1 : select - 1;
+			break;
+
+		case UP:
+			if (select > 3) {
+				select -= 3;
+			}
+			break;
+
+		case DOWN:
+			if (select <= 3) {
+				select += 3;
+			}
+			break;
 		}
 
+		// remove rectangle
+		y -= 5;
+		print_auto_y(&x, &y, "                    ");
+		print_auto_y(&x, &y, "  ");
+		gotoxy(x + 18, y - 1);			printf("  ");
+		print_auto_y(&x, &y, "  ");
+		gotoxy(x + 18, y - 1);			printf("  ");
+		print_auto_y(&x, &y, "  ");
+		gotoxy(x + 18, y - 1);			printf("  ");
+		print_auto_y(&x, &y, "                    ");
 	}
 
-
-
-	system("cls");
-	return 0;
+	return select;
 }
