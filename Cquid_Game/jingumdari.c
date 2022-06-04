@@ -1,6 +1,7 @@
 #include "jingumdari.h"
 
 int main_jingumdari(void) {
+	PlaySound(TEXT("./sound/jingumdari.wav"), NULL, SND_ASYNC | SND_LOOP);
 	system("title Â¡°Ë´Ù¸® ");
 	while (1) {
 		drawTitle();

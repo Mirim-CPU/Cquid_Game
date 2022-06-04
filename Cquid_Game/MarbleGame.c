@@ -437,6 +437,7 @@ void failDraw()
 
 //메인
 int main_marble() {
+	PlaySound(TEXT("./sound/marble.wav"), NULL, SND_ASYNC | SND_LOOP);
 	system("title 구슬치기 ");
 	CursorView();
 	int level_num;
