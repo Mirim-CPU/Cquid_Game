@@ -336,18 +336,19 @@ void showYoungHee(int show) {
 	}
 
 }
-void showGameOver() {
+void showGameOver(char* c) {
 
 	system("cls");
-	PlaySound(TEXT("./sound/mugunghwa/tang.wav"), NULL, SND_FILENAME | SND_ASYNC); 
+	PlaySound(TEXT("./sound/mugunghwa/tang.wav"), NULL, SND_FILENAME | SND_ASYNC);
 	system("color 40");
 	Sleep(1000);
 	system("color 0C");
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
 	gotoxy_2x(27, 13); printf("GAME OVER");
-	gotoxy_2x(25, 15); printf("영희에게 걸려버렸다!");
+	gotoxy_2x(25, 15); printf("%s", c);
 	gotoxy_2x(28, 17); printf("점수 : %d", score);
 	gotoxy_2x(25, 20); printf("2초후 메인화면으로...");
+
 
 	check_rank();
 	score = 0;
@@ -363,24 +364,27 @@ void showGameOver() {
 void check() {
 
 	if (heart == 0) {
-		inputChk= 0;
-		showGameOver();
+		inputChk = 0;
+		showGameOver("5번 기회를 다 날렸다!");
 		TerminateThread(musicThread, 0);
 		TerminateThread(controlThread, 0);
 
 	}
 
-	char ch;
 	if (_kbhit()) {
+
 		if (thisTime > (double)soundtime && thisTime < (double)soundtime + 2) {
 			inputChk = 0;
-			showGameOver();
+			showGameOver("영희에게 걸려버렸다!");
 			TerminateThread(musicThread, 0);
 			TerminateThread(controlThread, 0);
 
 		}
 	}
 }
+
+
+
 
 
 unsigned _stdcall  MusicTimer() {
