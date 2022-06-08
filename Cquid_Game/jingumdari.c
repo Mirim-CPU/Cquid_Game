@@ -189,6 +189,8 @@ void gloop() {
 			if (i == turn + 1) printf("<------현위치\n");
 			else printf("\n");
 		}
+		gotoxy(28, 25);
+		printf("↑ 여기서 시작!");
 
 		x = 90;
 		y = 2;
