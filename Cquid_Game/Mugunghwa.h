@@ -4,8 +4,11 @@
 #include <time.h>
 #include <process.h>
 
-void Mugunghwa_main();
 
+
+void StartGame();
+void mission( );
+void main_mugunghwa();
 enum Color
 {
     CYAN,
