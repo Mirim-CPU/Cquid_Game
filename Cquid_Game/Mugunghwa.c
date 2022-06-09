@@ -295,9 +295,9 @@ unsigned _stdcall character_control() {
 			case 22:  gotoxy_2x(x++, y); printf("  ");  break;
 			case 23:  gotoxy_2x(x, y++); printf("  ");  break;
 			case 24:  gotoxy_2x(x, y++); printf("  ");   break;
-			case 25:  gotoxy_2x(x, y++); printf("  ");   break;
-			case 26:  gotoxy_2x(x, y++); printf("  ");   break;
-			case 27:  gotoxy_2x(x, y++); printf("  ");   break;
+			case 25:  gotoxy_2x(x--, y++);  printf("  "); ;  break;
+			case 26:  gotoxy_2x(x, y++);  printf("  ");   break;
+			case 27:  gotoxy_2x(x++, y);  printf("  ");    break;
 			}
 		}
 
@@ -342,8 +342,8 @@ unsigned _stdcall character_control() {
 			switch (arrowNum)
 			{
 			case 0: arrowNum = 1; 		break;
-			case 1: arrowNum = 0; 		break;
-				//case 2: arrowNum = 3;  	break;
+			case 1: arrowNum = 2; 		break;
+		    case 2: arrowNum = 0;  	break;
 
 			}
 			//맵구성 초기화
@@ -463,7 +463,7 @@ unsigned _stdcall  MusicTimer() {
 
 	while (inputChk) {
 
-		int rn = (rand() % 5);
+		int rn = (rand() % 1);
 
 		switch (rn)
 		{
@@ -663,7 +663,9 @@ void mission() {
 			case 22:  gotoxy_2x(x++, y); printf("%s", m[rn]);  break;
 			case 23:  gotoxy_2x(x, y++); printf("%s", m[rn]);  break;
 			case 24:  gotoxy_2x(x, y++); printf("%s", m[rn]);  break;
-			case 25:  gotoxy_2x(x, y++); printf("%s", m[rn]);  break;
+			case 25:  gotoxy_2x(x--, y++); printf("%s", m[rn]);  break;
+			case 26:  gotoxy_2x(x, y++); printf("%s", m[rn]);  break;
+			case 27:  gotoxy_2x(x++, y); printf("%s", m[rn]);  break;
 			}
 		}
 
