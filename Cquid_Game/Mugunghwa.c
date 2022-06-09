@@ -463,7 +463,7 @@ unsigned _stdcall  MusicTimer() {
 
 	while (inputChk) {
 
-		int rn = (rand() % 5);
+		int rn = (rand() % 1);
 
 		switch (rn)
 		{
