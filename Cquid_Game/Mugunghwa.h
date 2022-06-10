@@ -9,6 +9,7 @@
 void StartGame();
 void mission( );
 void main_mugunghwa();
+void stopGame();
 enum Color
 {
     CYAN,
@@ -23,12 +24,12 @@ enum Color
     LIGHTMAGENTA,
 };
 
-
-#define UP  10
-#define DOWN  11
-#define RIGHT  13
-#define LEFT  14
-#define SPACE 15
+//키보드 값
 #define ESC 27
 #define ENTER 13
+#define UP 72
+#define DOWN 80
+#define LEFT 75
+#define RIGHT 77
+
 

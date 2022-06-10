@@ -15,7 +15,9 @@ int answer[MAX]; //문제 저장
 int heart = 5; //목숨값
 int inputChk = 1; //스레드 설정
 int arrowNum = 0;// 맵 넘버
+int gameStop = 0; //게임스탑 확인
 void check_rank();
+
 typedef struct user {
 	char name[10];
 	int score;
@@ -57,6 +59,8 @@ int MkeyControl() {
 			}
 			else if (c == 13)
 				return ENTER;
+			else if (c == 27)
+				gameStop = 1;  return 0;
 		}
 	}
 }
@@ -100,14 +104,14 @@ void Mugunghwa_title() {
 //설명
 void manual() {
 	gotoxy(82, 8);  printf("_____________________________");
-	gotoxy(85, 10);  printf("무궁화 꽃이 피었습니다");
+	gotoxy(85, 10);  printf(" 무궁화꽃이 피었습니다");
 	gotoxy(93, 12);  printf("○△□ ");
 
 	gotoxy(82, 13);  printf("참가자는 방향키(→←↑↓)를 ");
 	gotoxy(85, 14);  printf("눌러 영희가 있는 곳 까지");
 	gotoxy(88, 15);  printf("도착해야합니다");
 
-	gotoxy(82, 17);  printf("ESC를 누르면 게임종료가 됩니다");
+	gotoxy(85, 17);  printf("1위 노려봅시다! 레쭈고!!");
 	gotoxy(93, 18);  printf("○△□ ");
 	gotoxy(82, 19);  printf("_____________________________");
 
@@ -131,14 +135,11 @@ int  menu() {
 
 	int x = 45;
 	int y = 22;
-	int show = 0;
-
-	//if (++showMN == 1) showMenu();
-
 	while (1) {
 		int n = MkeyControl();
 		switch (n)
 		{
+
 
 		case UP: {
 			if (y > 22) {
@@ -153,31 +154,20 @@ int  menu() {
 				gotoxy_2x(x - 1, y); printf("  ");
 				gotoxy_2x(x - 1, y += 2); printf("▶");
 			}
-
 			break;
 		}
+		
 		case ENTER: {
 			return y - 22;
 			break;
 		}
+		
+		
 
 		}
 	}
 
 }
-
-//완료 체크
-void checkFinish(int x, int y) {
-	if (x >= 50 && y >= 1 && y <= 23) {
-		system("cls");
-		gotoxy_2x(30, 13); printf("완주");
-		check_rank();
-	}
-}
-
-int m_x = 3; //화살표 처음 위치
-//캐릭터 움직이기
-
 
 unsigned _stdcall character_control() {
 	int x = 4;
@@ -193,6 +183,7 @@ unsigned _stdcall character_control() {
 	while (inputChk) {
 
 		int n = MkeyControl();
+		
 
 
 		switch (n)
@@ -200,7 +191,7 @@ unsigned _stdcall character_control() {
 
 
 		case RIGHT: {
-
+	
 			if (answer[i] == 0) { score += 10; }
 			else heart--;
 			break;
@@ -357,7 +348,7 @@ unsigned _stdcall character_control() {
 
 
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
-		gotoxy_2x(20, 28); printf(" %d", score);
+		gotoxy_2x(21, 28); printf("%d", score);
 		gotoxy_2x(46, 28); printf(" %d", heart);
 
 
@@ -422,6 +413,7 @@ void showGameOver(char* c) {
 	check_rank();
 	score = 0;
 	heart = 5;
+
 	Sleep(1500);
 	system("cls");
 	main_mugunghwa();
@@ -430,9 +422,28 @@ void showGameOver(char* c) {
 }
 
 
+
+void stopGame() {
+	PlaySound(NULL, 0, 0);
+	score = 0;
+	heart = 5;
+	gameStop = 0;
+	system("cls");
+	main_mugunghwa();
+
+}
+
+
 void check() {
 
-	if (heart == 0) {
+
+	if (gameStop == 1) {
+		inputChk = 0;
+		stopGame();
+		TerminateThread(musicThread, 0);
+		TerminateThread(controlThread, 0);
+	}
+	 if (heart == 0) {
 		inputChk = 0;
 		showGameOver("5번 기회를 다 날렸다!");
 		TerminateThread(musicThread, 0);
@@ -440,7 +451,7 @@ void check() {
 
 	}
 
-	if (_kbhit()) {
+	 else if (_kbhit()) {
 
 		if (thisTime > (double)soundtime && thisTime < (double)soundtime + 2) {
 			inputChk = 0;
@@ -463,7 +474,7 @@ unsigned _stdcall  MusicTimer() {
 
 	while (inputChk) {
 
-		int rn = (rand() % 1);
+		int rn = (rand() % 5);
 
 		switch (rn)
 		{
@@ -543,6 +554,10 @@ void showHeart() {
 
 //점수 나타내기
 void showScore() {
+
+	gotoxy_2x(23, 32);
+	printf("ESC키를 누르면 게임종료가 됩니다");
+
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BLUE);
 	int y = 26;
 	gotoxy_2x(5, y++);  printf(" ___  ___ ___   _  __ ___   ");
@@ -550,7 +565,7 @@ void showScore() {
 	gotoxy_2x(5, y++);  printf("＼__＼ (_| (_)  | |  | __/");
 	gotoxy_2x(5, y++);  printf("|___/＼___＼___/|_|  ＼___|  0 ");
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
-	gotoxy_2x(20, 28); printf(" % d", 0);
+	gotoxy_2x(21, 28); printf("%d", 0);
 
 }
 

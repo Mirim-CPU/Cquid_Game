@@ -46,32 +46,32 @@ int main(void) {
 		switch (select)
 		{
 		case 1:
-			rectangle(114, 29, 2, 1);
+			//rectangle(114, 29, 2, 1);
 			main_mugunghwa();
 			break;
 
 		case 2:
-			rectangle(114, 29, 2, 1);
+			//rectangle(114, 29, 2, 1);
 			main_dalgona();
 			break;
 
 		case 3:
-			rectangle(114, 29, 2, 1);
+			//rectangle(114, 29, 2, 1);
 			main_pushpull();
 			break;
 
 		case 4:
-			rectangle(114, 29, 2, 1);
+			//rectangle(114, 29, 2, 1);
 			main_marble();
 			break;
 
 		case 5:
-			rectangle(114, 29, 2, 1);
+			//rectangle(114, 29, 2, 1);
 			main_jingumdari();
 			break;
 
 		case 6:
-			rectangle(114, 29, 2, 1);
+			//rectangle(114, 29, 2, 1);
 			rhythm_main();
 			break;
 
