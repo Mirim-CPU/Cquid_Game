@@ -140,22 +140,34 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="dalgona.c" />
+    <ClCompile Include="fun.c" />
+    <ClCompile Include="gameplay.c" />
     <ClCompile Include="jingumdari.c" />
+    <ClCompile Include="keysetting.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="MarbleGame.c" />
     <ClCompile Include="modules.c" />
     <ClCompile Include="Mugunghwa.c" />
+    <ClCompile Include="parson.c" />
     <ClCompile Include="pushpull.c" />
-    <ClCompile Include="rhythm.c" />
+    <ClCompile Include="rhythm_main.c" />
+    <ClCompile Include="selectmap.c" />
+    <ClCompile Include="title.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dalgona.h" />
+    <ClInclude Include="fun.h" />
+    <ClInclude Include="gameplay.h" />
     <ClInclude Include="jingumdari.h" />
+    <ClInclude Include="keysetting.h" />
     <ClInclude Include="MarbleGame.h" />
     <ClInclude Include="modules.h" />
     <ClInclude Include="Mugunghwa.h" />
+    <ClInclude Include="parson.h" />
     <ClInclude Include="pushpull.h" />
-    <ClInclude Include="rhythm.h" />
+    <ClInclude Include="rhythm_main.h" />
+    <ClInclude Include="selectmap.h" />
+    <ClInclude Include="title.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

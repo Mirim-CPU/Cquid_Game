@@ -4,14 +4,8 @@
 #include "pushpull.h"
 #include"dalgona.h"
 #include "Mugunghwa.h"
-#include "rhythm.h"
+#include "rhythm_main.h"
 
-#define ESC 27
-#define ENTER 13
-#define UP 72
-#define DOWN 80
-#define LEFT 75
-#define RIGHT 77
 
 void set_console(void);
 void set_cursor(int flag, int size);
@@ -72,7 +66,7 @@ int main(void) {
 
 		case 6:
 			//rectangle(114, 29, 2, 1);
-			rhythm_main();
+			rhy_main();
 			break;
 
 		default:
