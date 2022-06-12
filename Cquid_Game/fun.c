@@ -3,7 +3,7 @@
 
 // (x, y) 좌표에 커서를 놓는다.
 void gotoxy1(int x, int y) {
-	static COORD pos = {0,};
+	static COORD pos = { 0, };
 	pos.X = x;
 	pos.Y = y;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
@@ -11,7 +11,7 @@ void gotoxy1(int x, int y) {
 
 // x칸, y칸만큼 커서를 옮긴다.
 void movexy(int x, int y) {
-	gotoxy1(curX() + x, curY() + y);
+	gotoxy(curX() + x, curY() + y);
 }
 
 // 커서 모양을 변경한다.
