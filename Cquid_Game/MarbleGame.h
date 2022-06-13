@@ -23,6 +23,7 @@ void drawTime(double, double);
 int drawlevel();
 void endDraw();
 void failDraw();
+void gamerule();
 
 //키보드 값
 #define ESC 27
