@@ -26,7 +26,7 @@ const int gtp = 0; // gameplay top padding
 char* mapName; // 맵 이름
 char* mapDir; // 맵 폴더 경로 ("maps/mapName/")
 JSON_Object* mapInfo; // info.json 데이터
-char** map; // 맵 (노트가 나오는 패턴)
+char** mapR; // 맵 (노트가 나오는 패턴)
 int mapLength; // 패턴의 길이 (map의 행 개수)
 int FALLSPEED = 150; // 노트가 떨어지는 속도(ms), FALLSPEED초에 한 칸씩 떨어짐
 

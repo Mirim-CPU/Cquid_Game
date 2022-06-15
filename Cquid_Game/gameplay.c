@@ -37,7 +37,7 @@ void main_gameplay(char* _mapName) {
 
 	playBgm(3);
 	free(mapDir);
-	for (int i = 0; i < mapLength; i++) free(map[i]); free(map);
+	for (int i = 0; i < mapLength; i++) free(mapR[i]); free(mapR);
 }
 
 
@@ -65,6 +65,7 @@ void init()
 
 // 노트 맵 파일을 읽어서 note에 저장한다.
 int readMap() {
+
 	FILE* f;
 
 	// 맵 폴더 위치 설정 (maps/mapName/)
@@ -90,6 +91,7 @@ int readMap() {
 	if (notePath == NULL) return -1;
 	sprintf_s(notePath, notePathSize, "%s%s", mapDir, noteFile);
 
+
 	// 맵 정보 읽기
 	mapLength = (int)json_object_get_number(mapInfo, "mapLength");
 	FALLSPEED = (int)json_object_get_number(mapInfo, "fallSpeed");
@@ -103,8 +105,8 @@ int readMap() {
 	}
 
 	// 노트 읽어서 map에 넣기
-	map = malloc(mapLength * sizeof(char*));
-	if (map == NULL) return -1;
+	mapR = malloc(mapLength * sizeof(char*));
+	if (mapR == NULL) return -1;
 	fopen_s(&f, notePath, "r");
 	if (f == NULL) return -1;
 
@@ -112,11 +114,13 @@ int readMap() {
 	char* line;
 	for (int i = 0; i < mapLength; i++) {
 		line = malloc(LINE * sizeof(char));
-		if (line == NULL) return -1;
+		if (line == NULL) {
+			return -1;
+		}
 		for (int j = 0; j < LINE; j++) {
 			line[j] = fgetc(f);
 		}
-		map[i] = line;
+		mapR[i] = line;
 
 		fgetc(f); // '\n'
 	}
@@ -259,7 +263,7 @@ void fallingNote() {
 		// 맨 윗 줄에 새로 노트 추가
 		if (mapIndex < mapLength) {
 			for (int i = 0; i < LINE; i++) {
-				note[0][i] = map[mapIndex][i];
+				note[0][i] = mapR[mapIndex][i];
 			}
 			mapIndex++;
 
