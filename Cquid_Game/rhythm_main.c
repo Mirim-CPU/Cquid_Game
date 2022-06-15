@@ -1,11 +1,12 @@
 /* main.c */
 
 #include "rhythm_main.h"
+#include "modules.h"
 
 
 rhy_main() {
-
 	system("cls");
+	PlaySound(TEXT("./sound/rhythm.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
 	setlocale(LC_ALL, "");
 	SetConsoleTitle(L"Rhythm Game");
 	setColor1(white1);
