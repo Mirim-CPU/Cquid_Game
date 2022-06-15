@@ -30,4 +30,5 @@ rhy_main() {
 		main_gameplay(mapName);
 		for (int i = 0; i < mapCount; i++) free(mapList[i]); free(mapList);
 	}
+
 }

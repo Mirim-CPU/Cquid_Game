@@ -2,7 +2,6 @@
 
 #include "gameplay.h"
 
-
 // 게임을 플레이하는 씬
 void main_gameplay(char* _mapName) {
 	mapName = _mapName;

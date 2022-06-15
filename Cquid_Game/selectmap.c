@@ -1,6 +1,7 @@
 /* selectmap.c */
 
 #include "selectmap.h"
+#include "modules.h"
 
 // 맵을 선택하는 씬
 char* main_selectmap() {
@@ -85,9 +86,38 @@ int showMapList() {
 
 	// 안내
 	setColor1(gray1);
-	gotoxy1(slp, stp); puts("곡을 선택하세요.");
-	gotoxy1(8, 13); printf("키를 설정하려면 ");
-	gotoxy1(8, 14); wprintf(L"Ｓ키를 누르세요");
+	gotoxy1(slp, stp); puts(" :: 곡을 선택하세요.");
+	gotoxy1(8, 13); printf("키를 다시 설정하려면 ");
+	gotoxy1(8, 14); wprintf(L"  Ｓ키를 누르세요");
+
+	int x = 85;
+	int y = 5;
+	setColor(RED);
+	print_auto_y(&x, &y, "      주목!");
+	print_auto_y(&x, &y, "여길 확인해 주세요!");
+	setColor(white1);
+	print_auto_y(&x, &y, "원하는 난이도나 피드백을");
+	print_auto_y(&x, &y, "주시면 적극적으로 반영하겠습니다!");
+	print_auto_y(&x, &y, "즐겁게 플레이해주세요!");
+	print_auto_y(&x, &y, "   　 ┏┓");
+	print_auto_y(&x, &y, "　    ┃┃");
+	print_auto_y(&x, &y, "      ┃┃");
+	print_auto_y(&x, &y, "　    ┃┃");
+	print_auto_y(&x, &y, "　    ┃┃");
+	print_auto_y(&x, &y, "　    ┃┃");
+	print_auto_y(&x, &y, "      ┃┃");
+	print_auto_y(&x, &y, "　    ┃┃");
+	print_auto_y(&x, &y, "　    ┃┃");
+	print_auto_y(&x, &y, "　    ┃┃");
+	print_auto_y(&x, &y, "　    ┃┃");
+	print_auto_y(&x, &y, "      ┃┃");
+	print_auto_y(&x, &y, "　    ┃┃");
+	print_auto_y(&x, &y, "　  ┏┻ ╋┳┳┓");
+	print_auto_y(&x, &y, "　  ┃ ┏┫┃┃┃");
+	print_auto_y(&x, &y, "　  ┃　 ┗┻┻┫");
+	print_auto_y(&x, &y, "　  ┗┓　　┏┛");
+	print_auto_y(&x, &y, "　  　┗━━┛");
+
 
 
 	// 하이스코어 데이터 열기 (없으면 생성)
