@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="소스 파일\rhythm">
+      <UniqueIdentifier>{c1b3a690-7fd7-43c5-97eb-6c089da36056}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c">
@@ -37,25 +40,25 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="fun.c">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\rhythm</Filter>
     </ClCompile>
     <ClCompile Include="gameplay.c">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\rhythm</Filter>
     </ClCompile>
     <ClCompile Include="keysetting.c">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\rhythm</Filter>
     </ClCompile>
     <ClCompile Include="parson.c">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\rhythm</Filter>
     </ClCompile>
     <ClCompile Include="rhythm_main.c">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\rhythm</Filter>
     </ClCompile>
     <ClCompile Include="selectmap.c">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\rhythm</Filter>
     </ClCompile>
     <ClCompile Include="title.c">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\rhythm</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -78,25 +81,25 @@
       <Filter>소스 파일</Filter>
     </ClInclude>
     <ClInclude Include="fun.h">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\rhythm</Filter>
     </ClInclude>
     <ClInclude Include="gameplay.h">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\rhythm</Filter>
     </ClInclude>
     <ClInclude Include="keysetting.h">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\rhythm</Filter>
     </ClInclude>
     <ClInclude Include="parson.h">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\rhythm</Filter>
     </ClInclude>
     <ClInclude Include="rhythm_main.h">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\rhythm</Filter>
     </ClInclude>
     <ClInclude Include="selectmap.h">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\rhythm</Filter>
     </ClInclude>
     <ClInclude Include="title.h">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\rhythm</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
