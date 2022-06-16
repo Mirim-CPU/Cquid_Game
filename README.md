@@ -6,7 +6,7 @@
 
 <br/>
 
-![main](https://user-images.githubusercontent.com/72568433/173968388-5f78bd6c-d4c1-4c3d-a8e4-abfb138428f7.png)
+![main](https://user-images.githubusercontent.com/72568433/173991082-8257b572-1d30-4e8f-9b03-f4e262f330cf.png)
 
 <br><br>
 
