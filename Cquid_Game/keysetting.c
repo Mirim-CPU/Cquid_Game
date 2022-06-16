@@ -6,8 +6,8 @@
 // 키를 설정하는 씬
 void main_keysetting() {
 
-	const int klp = 50; // keysetting left padding
-	const int ktp = 12; // keysetting top padding
+	const int klp = 51; // keysetting left padding
+	const int ktp = 10; // keysetting top padding
 	const int gap = 5; // 키 공간 사이의 간격 (+1)
 	const int boxWid = LINE * gap - 1; // 키설정 UI 가로 범위
 	memset(key, 0, sizeof(key));
