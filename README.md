@@ -43,7 +43,7 @@
 
 - **구슬 치기**
   - [배서연](https://github.com/seoyeon-double-7)
-  - 하진
+  - [하진](https://github.com/hajin2005)
   - [이혜령](https://github.com/leehyeryeong)
   
 - **징검다리**
