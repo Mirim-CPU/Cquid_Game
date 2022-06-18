@@ -16,7 +16,7 @@ int main_jingumdari(void) {
 }
 
 void drawTitle() {
-	int x = 48;
+	int x = 37;
 	int y = 4;
 	system("cls");
 
@@ -33,7 +33,7 @@ void drawTitle() {
 	printf(" |__/        |___/                                    ");
 
 	setColor(white);
-	x = 45, y = 12;
+	x = 37, y = 12;
 	gotoxy(x, y);
 	printf(" ---||-------||-------||----||------||-------||-----");
 	gotoxy(x, ++y);
@@ -81,7 +81,7 @@ void drawTitle() {
 
 int JmenuDraw() {
 	int input;
-	int x = 68, y = 26;
+	int x = 58, y = 26;
 	int key = y;
 	int num = 1;
 	gotoxy(x - 2, y);
@@ -192,7 +192,7 @@ void gloop() {
 		gotoxy(28, 25);
 		printf("↑ 여기서 시작!");
 
-		x = 90;
+		x = 85;
 		y = 2;
 		gotoxy(x, y);
 		printf("  - - - - - - - - - - - - - - -");
@@ -246,7 +246,7 @@ void gloop() {
 		gotoxy(x, ++y);
 		printf("|                     |");
 		gotoxy(x, ++y);
-		printf("|   %d번 참가자 도전!  |", center - life);
+		printf("| %d번 참가자 도전!    |", center - life);
 		gotoxy(x, ++y);
 		printf("|                     |");
 		gotoxy(x, ++y);
@@ -279,7 +279,7 @@ void gloop() {
 				setColor(lightcyan, black);
 				printf("성공!\n");
 				setColor(white, black);
-				x = 90;
+				x = 85;
 				y = 2;
 				gotoxy(x, y);
 				printf("  - - - - - - - - - - - - - - -");
@@ -320,7 +320,7 @@ void gloop() {
 				setColor(red, black);
 				printf("사망!\n");
 				setColor(white, black);
-				x = 90;
+				x = 85;
 				y = 2;
 				gotoxy(x, y);
 				printf("  - - - - - - - - - - - - - - -");

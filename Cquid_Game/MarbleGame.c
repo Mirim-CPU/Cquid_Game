@@ -364,6 +364,7 @@ int maplistDraw() {
 }
 
 void endDraw() {
+	PlaySound(NULL, 0, 0);
 	system("cls");
 	int x = 40, y = 5;	int input;
 	gotoxy(x, y);
@@ -397,6 +398,7 @@ void endDraw() {
 
 void failDraw()
 {
+	PlaySound(NULL, 0, 0);
 	int n;
 	int x = 30, y = 8;
 	system("cls");
@@ -473,6 +475,7 @@ int main_marble() {
 		}
 		else {
 			system("cls");
+			main();
 			break;
 		}
 	}
