@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARN
 #pragma once
 #include <Windows.h>
 #include <conio.h>
