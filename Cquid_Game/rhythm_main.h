@@ -32,6 +32,7 @@ const char* mapFolder; // 맵이 저장된 폴더 경로 ("maps")
 extern int mapCount;
 extern char** mapList;
 
+rhy_main();
 void main_keysetting();
 void main_title();
 char* main_selectmap();

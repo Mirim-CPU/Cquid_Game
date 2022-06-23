@@ -2,6 +2,8 @@
 
 #include "gameplay.h"
 
+int main(void);
+
 // 게임을 플레이하는 씬
 void main_gameplay(char* _mapName) {
 	mapName = _mapName;
@@ -465,8 +467,8 @@ void pause() {
 		while (GetAsyncKeyState(VK_ESCAPE)) removingJudgeTxt();
 		while (!GetAsyncKeyState(VK_ESCAPE)) {
 			if (GetAsyncKeyState('Q')) {
-				quit = TRUE;
-				return;
+				quit = TRUE; 
+				return main();
 			}
 			removingJudgeTxt();
 		}

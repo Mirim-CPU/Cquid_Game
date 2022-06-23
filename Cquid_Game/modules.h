@@ -7,7 +7,7 @@
 
 
 
-
+int main(void);
 void main_pushpull();
 void main_marble();
 void main_mugunghwa();

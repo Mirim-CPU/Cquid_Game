@@ -10,6 +10,7 @@
 #include <math.h>
 #include "parson.h"
 #include "rhythm_main.h"
+#include "modules.h"
 
 
 #define NOTETHK 6 // note thickness; 노트 하나의 두께 (가로 길이)
